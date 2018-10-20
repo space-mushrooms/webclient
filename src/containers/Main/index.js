@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import Swipe from '../../components/Swipe';
 import LaunchBanner from '../../components/LaunchBanner';
 import Sliding from '../../components/PageTransition/Sliding';

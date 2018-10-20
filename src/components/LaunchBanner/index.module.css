@@ -1,9 +1,32 @@
+.link {
+  text-decoration: none;
+  color: var(--color-text-inverse);
+}
+
 .launchTimer {
   font-weight: bold;
   font-size: 60px;
   text-align: center;
 }
 
-.exporeButton {
-  padding: 15px;
+.explore {
+  padding: 10px 15px;
+  font-size: 20px;
+  align-self: center;
+  border: 2px solid var(--color-text-inverse);
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.live {
+  color: #FF3B30;
+  font-weight: 500;
+  font-size: 14px;
+  position: absolute;
+  right: 11px;
+  top: 11px;
+}
+
+.live::before {
+
 }
