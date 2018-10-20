@@ -7,17 +7,21 @@ import Vehicles from './containers/Vehicles';
 import Launch from './containers/Launch';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from './reducers'
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'
-import {syncHistoryWithStore} from 'react-router-redux'
+import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux'
 
 const store = createStore(
     rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    compose(
+      applyMiddleware(routerMiddleware(browserHistory)),
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+    )
 );
 
 const history = syncHistoryWithStore(browserHistory, store)
+
 
 ReactDOM.render((
   <Provider store={store}>
