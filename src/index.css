@@ -13,6 +13,7 @@ html {
   min-width: 320px;
   --color-background: #fff;
   --color-text: #2d2f43;
+  --color-header: #000;
   --color-text-inverse: #fff;
   --color-link: blue;
   --color-link-hover: lightblue;
