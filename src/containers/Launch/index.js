@@ -6,7 +6,7 @@ export default class LaunchPage extends PureComponent {
   render() {
     return (
       <Sliding>
-        <TitledSection title="Launch Page">
+        <TitledSection marginTop title="Launch Page">
           Launch Page
         </TitledSection>
       </Sliding>

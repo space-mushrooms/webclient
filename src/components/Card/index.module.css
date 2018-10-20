@@ -9,12 +9,19 @@
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
   position: relative;
+}
+
+.overlayShadow {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.overlayGradient {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 2.36%, rgba(255, 255, 255, 0) 100%);
 }
 
 .video {
