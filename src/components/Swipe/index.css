@@ -1,0 +1,26 @@
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  padding: 0 var(--size-gutter);
+  position: relative;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: nowrap;
+  max-height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.child {
+  max-height: 100%;
+  position: relative;
+  transition-property: transform;
+}
+
+.fullscreen,
+.fullscreen .inner,
+.fullscreen .child {
+  height: 100%;
+}

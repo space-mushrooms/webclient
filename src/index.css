@@ -16,6 +16,7 @@ html {
   --color-text-inverse: #fff;
   --color-link: blue;
   --color-link-hover: lightblue;
+  --size-gutter: 2rem;
 }
 
 body {
