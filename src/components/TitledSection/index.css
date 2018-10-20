@@ -1,0 +1,22 @@
+.root {
+
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 24px;
+  color: var(--color-header);
+}
+
+.link {
+  font-family: Roboto;
+  font-size: 18px;
+  align-self: center;
+}
