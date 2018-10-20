@@ -1,0 +1,5 @@
+.root {
+  padding: 28px 12px 12px;
+  background: rgba(0, 0, 0, 0.6) 50% 50% / cover no-repeat;
+  border-radius: 10px;
+}
