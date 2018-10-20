@@ -1,15 +1,17 @@
-.swipe {
+.wrapper {
   overflow: hidden;
-  visibility: hidden;
-  padding: 0 var(--size-gutter);
+}
+
+.swipe {
   position: relative;
+  visibility: hidden;
+  margin: 0 var(--size-gutter-three-quarter);
 }
 
 .inner {
   display: flex;
   flex-wrap: nowrap;
   max-height: 100%;
-  overflow: hidden;
   position: relative;
 }
 
@@ -23,4 +25,8 @@
 .fullscreen .inner,
 .fullscreen .child {
   height: 100%;
+}
+
+.childContent {
+  margin: 0 var(--size-gutter-quarter);
 }

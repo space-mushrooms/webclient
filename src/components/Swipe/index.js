@@ -16,6 +16,7 @@ export default class Swipe extends Component {
     className: PropTypes.string,
     fullscreen: PropTypes.bool,
     swipeOptions: PropTypes.shape({
+      slidesPerView: PropTypes.string,
       startSlide: PropTypes.number,
       speed: PropTypes.number,
       auto: PropTypes.number,
@@ -32,7 +33,9 @@ export default class Swipe extends Component {
     childClassName: '',
     className: '',
     fullscreen: false,
-    swipeOptions: null,
+    swipeOptions: {
+      continuous: false,
+    },
   };
 
   constructor(props) {
@@ -87,11 +90,17 @@ export default class Swipe extends Component {
     const {childClassName, className, children, fullscreen} = this.props;
 
     return (
-      <div ref={element => { this.element = element; }} className={cn('swipe', className, {fullscreen})}>
-        <div className={cn('inner')}>
-          {React.Children.map(children, child => (
-            <child.type {...child.props} className={cn('child', childClassName || child.props.className)} />
-          ))}
+      <div className={cn('wrapper')}>
+        <div ref={element => { this.element = element; }} className={cn('swipe', className, {fullscreen})}>
+          <div className={cn('inner')}>
+            {React.Children.map(children, child => (
+              <div className={cn('child', childClassName || child.props.className)}>
+                <div className={cn('childContent')}>
+                  {child}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );

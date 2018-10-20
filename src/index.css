@@ -17,6 +17,9 @@ html {
   --color-link: blue;
   --color-link-hover: lightblue;
   --size-gutter: 2rem;
+  --size-gutter-half: 1rem;
+  --size-gutter-quarter: .5rem;
+  --size-gutter-three-quarter: 1.5rem;
 }
 
 body {
