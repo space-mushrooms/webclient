@@ -3,6 +3,7 @@
 }
 
 .titleWrapper {
+  align-items: center;
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
@@ -15,6 +16,10 @@
 }
 
 .link {
-  font-size: 18px;
   align-self: center;
+  color: #007AFF;
+  font-size: 18px;
+  margin-right: -1rem;
+  padding: 1rem;
+  text-decoration: none;
 }
