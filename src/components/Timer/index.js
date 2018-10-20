@@ -45,7 +45,7 @@ export default class Timer extends React.Component {
 
   getRemaining(props) {
     const now = this.props.nowGetter();
-    return Math.round(Math.max(this.props.timestamp - now, 0) / 1000);
+    return Math.ceil(Math.max(this.props.timestamp - now, 0) / 1000);
   }
 
   updateRemaining = () => {

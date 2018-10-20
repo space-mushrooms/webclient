@@ -1,9 +1,9 @@
 import classnames from 'classnames/bind';
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 import styles from './index.module.css';
 import Card from '../Card';
 import LaunchInfo from '../LaunchInfo';
@@ -43,15 +43,17 @@ class LaunchBanner extends Component {
     });
   }
 
-
+  handleTimerComplete = () => {
+    this.forceUpdate();
+  }
 
   render() {
-  const { image, mission, rocket, video, launchTs, streamTs} = this.props.launch;
-  const now = new Date();
-  const shouldDisplayDate = (streamTs - TIMER_DATE_THRESHOLD) > now;
-  const live = streamTs < now
-  const rightNow = live && launchTs < now
-  const showTimer = !rightNow && !shouldDisplayDate;
+    const { image, mission, rocket, video, launchTs, streamTs } = this.props.launch;
+    const now = new Date();
+    const shouldDisplayDate = (streamTs - TIMER_DATE_THRESHOLD) > now;
+    const live = streamTs < now;
+    const rightNow = launchTs < now;
+    const showTimer = !rightNow && !shouldDisplayDate;
 
     return (
       <div ref={this.ref}>
@@ -61,18 +63,18 @@ class LaunchBanner extends Component {
           className={cn('link')}
         >
           <Card backgroundImage={image} video={video} shadow height="390px">
-          {live && <span className={cn('live')}>LIVE</span>}
-        <div>
-          <LaunchInfo title="Mission" text={mission} />
-          <LaunchInfo title="Rocket" text={rocket} />
-        </div>
-        <div className={cn('launchTimer')}>
-          {rightNow && 'Right now'}
-          {shouldDisplayDate && format(now, 'MM/DD/YY')}
-          {showTimer && <Timer timestamp={launchTs} />}
-        </div>
-        <div className={cn('explore')}>
-          Explore now
+            {live && <span className={cn('live')}>LIVE</span>}
+            <div>
+              <LaunchInfo title="Mission" text={mission} />
+              <LaunchInfo title="Rocket" text={rocket} />
+            </div>
+            <div className={cn('launchTimer')}>
+              {rightNow && 'Right now'}
+              {shouldDisplayDate && format(now, 'MM/DD/YY')}
+              {showTimer && <Timer timestamp={launchTs} onComplete={this.handleTimerComplete} />}
+            </div>
+            <div className={cn('explore')}>
+              Explore now
         </div>
           </Card>
         </Link>
@@ -81,4 +83,4 @@ class LaunchBanner extends Component {
   }
 }
 
-export default connect(null, dispatch => bindActionCreators({push}, dispatch))(LaunchBanner);
+export default connect(null, dispatch => bindActionCreators({ push }, dispatch))(LaunchBanner);
