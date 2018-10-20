@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
-import Main from './containers/Main';
+import classnames from 'classnames/bind';
+import React from 'react';
+import Navbar from './components/Navbar';
+import styles from './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <Main />
-    );
-  }
+const cn = classnames.bind(styles);
+
+export default function App({children}) {
+  return (
+    <React.Fragment>
+      <main role="main">
+        {children}
+      </main>
+      <Navbar />
+    </React.Fragment>
+  );
 }
-
-export default App;
