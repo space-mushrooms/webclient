@@ -4,13 +4,25 @@ import styles from './index.module.css';
 
 const cn = classnames.bind(styles);
 
-export default function Card({ children, backgroundImage, height }) {
+export default function Card({ children, backgroundImage, height, shadow }) {
   return (
     <div
-      className={cn('root')}
-      style={{backgroundImage: `url(${backgroundImage})`, height}}
-    >
-      {children}
-    </div>
-  );
+        className={cn('rootBase', {root: !shadow})}
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          height,
+        }}
+      >
+        {shadow ? (
+          <div
+            className={cn('overlay', 'root')}
+          >
+            {children}
+          </div>
+        ) : (
+            children
+          )
+        }
+      </div>
+  )
 }

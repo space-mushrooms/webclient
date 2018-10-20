@@ -4,7 +4,7 @@ import styles from './index.module.css';
 
 const cn = classnames.bind(styles);
 
-export default function LaunchBanner({ title, text }) {
+export default function LaunchInfo({ title, text }) {
   return (
     <div className={cn('launchInfo')}>
       <p className={cn('title')}>{title}</p>

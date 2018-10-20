@@ -1,5 +1,21 @@
-.root {
-  padding: 28px 12px 12px;
+.rootBase {
+  color: var(--color-text-inverse);
   background: rgba(0, 0, 0, 0.6) 50% 50% / cover no-repeat;
   border-radius: 10px;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.root {
+  padding: 28px 12px 12px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  flex-direction: column;
 }
