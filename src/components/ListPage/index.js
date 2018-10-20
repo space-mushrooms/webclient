@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Reducer from '../Reducer';
-import styles from './index.modules.css';
+import styles from './index.module.css';
 
 
 export default class ListPage extends Component {
@@ -14,12 +14,15 @@ export default class ListPage extends Component {
 
   render() {
     const {search, title} = this.props;
-    const data = this.props.data.filter(item => item[search].includes(this.state.searchString));
+    const data = this.props.data.filter(item => {
+      const itemValue = item[search] ? item[search].toLowerCase() : '';
+      return itemValue.includes(this.state.searchString.toLowerCase());
+    });
 
     return (
       <Reducer marginTop>
         {title && <h1 className={styles.title}>{title}</h1>}
-        {search && (<input onInput={evt => {
+        {search && (<input className={styles.search} onInput={evt => {
           this.setState({
             searchString: evt.target.value,
           });
@@ -29,7 +32,11 @@ export default class ListPage extends Component {
             const key = [item.title, item.text, item.imgUrl].join();
             return (
               <div className={styles.item} key={key}>
-                <h2 className={styles.itemTitle}>{item.title}</h2>
+                <div className={styles.itemThumbnail} style={{backgroundImage: `url(${item.imgUrl})`}}></div>
+                <div className={styles.itemContent}>
+                  <div className={styles.itemTitle}>{item.title}</div>
+                  <div className={styles.itemText}>{item.text}</div>
+                </div>
               </div>
             );
           })}

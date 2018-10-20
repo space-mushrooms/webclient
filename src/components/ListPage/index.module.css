@@ -1,0 +1,50 @@
+.title {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.item {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.itemTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.itemThumbnail {
+  height: 70px;
+  width: 70px;
+  background-size: cover;
+  margin-right: 18px;
+  background-position: 50%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .25);
+
+}
+
+.itemContent {
+
+}
+
+.itemText {
+  font-size: 18px;
+  color: #8A8A8F;
+}
+
+.search {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 6px 32px 6px 12px;
+  background-image: url('./search.svg');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 9px) 50%;
+}
