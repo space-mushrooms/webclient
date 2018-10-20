@@ -14,7 +14,7 @@ import Timer from '../Timer';
 
 const cn = classnames.bind(styles);
 
-const TIMER_DATE_THRESHOLD = 1000 * 60 * 60 * 24 * 5; // 5 days
+const TIMER_DATE_THRESHOLD = 1000 * 60 * 60 * 24 * 1; // 5 days
 
 class LaunchBanner extends Component {
   static propTypes = {
@@ -43,7 +43,7 @@ class LaunchBanner extends Component {
     });
   }
 
-  
+
 
   render() {
   const { image, mission, rocket, video, launchTs, streamTs} = this.props.launch;
