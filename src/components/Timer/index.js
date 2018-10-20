@@ -1,6 +1,10 @@
+import classnames from 'classnames/bind';
+import padStart from 'lodash/padStart';
 import PropTypes from 'prop-types';
 import React from 'react';
-import padStart from 'lodash/padStart';
+import styles  from './index.css';
+
+const cn = classnames.bind(styles);
 
 const MINUTE = 60;
 const HOUR = 60 * MINUTE;
@@ -61,15 +65,14 @@ export default class Timer extends React.Component {
     const string = padStart(value, 2, 0);
     return (
       <span>
-        <span className={styles.number}>{string[0]}</span>
-        <span className={styles.number}>{string[1]}</span>
+        <span className={cn('number')}>{string[0]}</span>
+        <span className={cn('number')}>{string[1]}</span>
         {last || ':'}
       </span>
     );
   }
 
   render() {
-    const styles = require('./index.scss');
     const {style} = this.props;
     const {remaining} = this.state;
     if (!remaining) {
@@ -85,7 +88,7 @@ export default class Timer extends React.Component {
     seconds %= MINUTE;
 
     return (
-      <span className={styles[style]}>
+      <span className={cn(style)}>
         {!days || this.renderItem(styles, days)}
         {(!days && !hours) || this.renderItem(styles, hours)}
         {this.renderItem(styles, minutes)}
