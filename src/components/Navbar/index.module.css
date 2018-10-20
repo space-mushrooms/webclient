@@ -1,17 +1,24 @@
 .navbar {
-  align-self: center;
   background: #000;
   bottom: 0;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-around;
   left: 0;
   position: fixed;
   right: 0;
 }
 
 .item {
+  align-self: center;
   color: var(--color-text-inverse);
+  flex: 1;
   font-size: 2rem;
+  justify-content: space-around;
   padding: var(--size-gutter);
+  text-align: center;
+  text-decoration: none;
+}
+
+.active {
+  background: rgba(255, 255, 255, .2);
 }

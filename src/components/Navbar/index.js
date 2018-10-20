@@ -5,13 +5,17 @@ import styles from './index.module.css';
 
 const cn = classnames.bind(styles);
 
+function Item(props) {
+  return <Link activeClassName={cn('active')} className={cn('item')} {...props} />;
+}
+
 export default function Navbar({children}) {
   return (
     <nav className={cn('navbar')}>
-      <Link to="/" activeClassName={cn('active')} className={cn('item')}>O</Link>
-      <Link className={cn('item')}>O</Link>
-      <Link className={cn('item')}>O</Link>
-      <Link className={cn('item')}>O</Link>
+      <Item to="/">O</Item>
+      <Item to="/schedule">O</Item>
+      <Item to="/some">O</Item>
+      <Item to="/profile">O</Item>
     </nav>
   );
 }
