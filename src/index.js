@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Main from './containers/Main';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
@@ -16,14 +16,13 @@ const store = createStore(
 
 const history = syncHistoryWithStore(browserHistory, store)
 
-ReactDOM.render(
+ReactDOM.render((
   <Provider store={store}>
-  <Router history={history}>
-      <Route path="/" component={App}>
-      </Route>
+    <Router history={history}>
+      <Route path="/" component={Main} />
     </Router>
-  </Provider>,
-document.getElementById('root'));
+  </Provider>
+), document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
