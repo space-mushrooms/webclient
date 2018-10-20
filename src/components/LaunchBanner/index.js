@@ -20,7 +20,7 @@ export default function LaunchBanner({launch}) {
 
   return (
     <Link to={`/launches/${id}`} className={cn('root')}>
-      <Card backgroundImage={image} shadow height="390px">
+      <Card backgroundImage={image} video={video} shadow height="390px">
         {live && <span className={cn('live')}>LIVE</span>}
         <div>
           <LaunchInfo title="Mission" text={mission} />
