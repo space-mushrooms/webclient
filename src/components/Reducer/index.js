@@ -1,7 +1,7 @@
 import classnames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styles from './index.css';
+import styles from './index.module.css';
 
 const cn = classnames.bind(styles);
 
