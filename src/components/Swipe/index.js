@@ -96,8 +96,6 @@ export default class Swipe extends PureComponent {
 
   render() {
     const {childClassName, className, children, fullscreen} = this.props;
-    console.log('mock', !this.swipe);
-
     return (
       <div className={cn('wrapper', {mock: !this.swipe})}>
         <div ref={element => { this.element = element; }} className={cn('swipe', className, {fullscreen})}>
