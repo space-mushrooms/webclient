@@ -3,7 +3,11 @@ import Swipe from '../../components/Swipe';
 import LaunchBanner from '../../components/LaunchBanner';
 import Sliding from '../../components/PageTransition/Sliding';
 import TitledSection from '../../components/TitledSection';
-import launchMock from '../../mock/launch';
+import {
+  launchMockRightNow,
+  launchMockDate,
+  launchMockTimer,
+} from '../../mock/launch';
 
 export default class MainPage extends PureComponent {
   render() {
@@ -11,9 +15,9 @@ export default class MainPage extends PureComponent {
       <Sliding>
         <TitledSection title="Upcoming launches" path="/" linkText="See all">
           <Swipe>
-            <LaunchBanner launch={launchMock} />
-            <LaunchBanner launch={launchMock} />
-            <LaunchBanner launch={launchMock} />
+            <LaunchBanner launch={launchMockRightNow} />
+            <LaunchBanner launch={launchMockDate} />
+            <LaunchBanner launch={launchMockTimer} />
           </Swipe>
         </TitledSection>
       </Sliding>

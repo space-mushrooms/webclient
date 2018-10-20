@@ -10,6 +10,7 @@ import LaunchInfo from '../LaunchInfo';
 import { Link } from 'react-router';
 import format from 'date-fns/format'
 import LaunchShape from '../../shapes/Launch';
+import Timer from '../Timer';
 
 const cn = classnames.bind(styles);
 
@@ -41,12 +42,15 @@ class LaunchBanner extends Component {
     });
   }
 
+  
+
   render() {
-    const { image, mission, rocket, video, launchTs, streamTs } = this.props.launch;
-    const now = new Date();
-    const shouldDisplayDate = (streamTs - TIMER_DATE_THRESHOLD) > now;
-    const live = streamTs < now;
-    const rightNow = live && launchTs < now;
+  const { image, mission, rocket, video, launchTs, streamTs} = this.props.launch;
+  const now = new Date();
+  const shouldDisplayDate = (streamTs - TIMER_DATE_THRESHOLD) > now;
+  const live = streamTs < now
+  const rightNow = live && launchTs < now
+  const showTimer = !rightNow && !shouldDisplayDate;
 
     return (
       <div ref={this.ref}>
@@ -56,18 +60,19 @@ class LaunchBanner extends Component {
           className={cn('link')}
         >
           <Card backgroundImage={image} video={video} shadow height="390px">
-            {live && <span className={cn('live')}>LIVE</span>}
-            <div>
-              <LaunchInfo title="Mission" text={mission} />
-              <LaunchInfo title="Rocket" text={rocket} />
-            </div>
-            <div className={cn('launchTimer')}>
-              {rightNow && 'Right now'}
-              {shouldDisplayDate && format(now, 'MM/DD/YY')}
-            </div>
-            <div className={cn('explore')}>
-              Explore now
-            </div>
+          {live && <span className={cn('live')}>LIVE</span>}
+        <div>
+          <LaunchInfo title="Mission" text={mission} />
+          <LaunchInfo title="Rocket" text={rocket} />
+        </div>
+        <div className={cn('launchTimer')}>
+          {rightNow && 'Right now'}
+          {shouldDisplayDate && format(now, 'MM/DD/YY')}
+          {showTimer && <Timer timestamp={launchTs} />}
+        </div>
+        <div className={cn('explore')}>
+          Explore now
+        </div>
           </Card>
         </Link>
       </div>
