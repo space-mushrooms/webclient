@@ -10,12 +10,13 @@
 }
 
 .mock:after {
-  background: rgba(0, 0, 0, .5);
+  background: linear-gradient(to left top, #888, #444) #888;
+  border-radius: 10px;
   bottom: 0;
   content: '';
-  left: var(--size-gutter-three-quarter);
+  left: var(--size-gutter);
   position: absolute;
-  right: var(--size-gutter-three-quarter);
+  right: var(--size-gutter);
   top: 0;
 }
 
