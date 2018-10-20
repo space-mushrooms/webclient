@@ -1,9 +1,36 @@
+.root {
+  color: transparent;
+}
+
+.root:hover {
+  color: transparent;
+}
+
 .launchTimer {
   font-weight: bold;
   font-size: 60px;
   text-align: center;
 }
 
-.exporeButton {
-  padding: 15px;
+.explore {
+  padding: 10px 15px;
+  font-size: 20px;
+  align-self: center;
+  color: var(--color-text-inverse);
+  border: 2px solid #FFFFFF;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.live {
+  color: #FF3B30;
+  font-weight: 500;
+  font-size: 14px;
+  position: absolute;
+  right: 11px;
+  top: 11px;
+}
+
+.live::before {
+
 }
