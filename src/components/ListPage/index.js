@@ -1,9 +1,21 @@
 import React, {Component} from 'react';
 import Reducer from '../Reducer';
+import PropTypes from 'prop-types';
 import styles from './index.module.css';
 
 
 export default class ListPage extends Component {
+  static propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      text: PropTypes.string,
+      imgUrl: PropTypes.string.isRequired,
+    })),
+    search: PropTypes.string,
+    title: PropTypes.string,
+  };
+
   constructor(props) {
     super(props);
 
@@ -29,13 +41,12 @@ export default class ListPage extends Component {
         }} />)}
         <div className={styles.list}>
           {data.map(item => {
-            const key = [item.title, item.text, item.imgUrl].join();
             return (
-              <div className={styles.item} key={key}>
+              <div className={styles.item} key={item.id}>
                 <div className={styles.itemThumbnail} style={{backgroundImage: `url(${item.imgUrl})`}}></div>
                 <div className={styles.itemContent}>
                   <div className={styles.itemTitle}>{item.title}</div>
-                  <div className={styles.itemText}>{item.text}</div>
+                  {item.text && <div className={styles.itemText}>{item.text}</div>}
                 </div>
               </div>
             );
