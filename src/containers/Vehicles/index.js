@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import ListPage from '../../components/ListPage';
 
 const mockData = [{
@@ -19,12 +19,14 @@ const mockData = [{
   imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/UC-12B_-_BuNo_161512_%283326008246%29.jpg/500px-UC-12B_-_BuNo_161512_%283326008246%29.jpg',
 }];
 
-export default function Vehicles() {
-  return (
-    <ListPage
-      title="Launch vehicles"
-      search="title"
-      data={mockData}
-    />
-  );
+export default class Vehicles extends PureComponent {
+  render() {
+    return (
+      <ListPage
+        title="Launch vehicles"
+        search="title"
+        data={mockData}
+      />
+    );
+  }
 }
