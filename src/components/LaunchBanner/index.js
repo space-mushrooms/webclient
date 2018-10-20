@@ -15,11 +15,12 @@ export default function LaunchBanner({launch}) {
   const { image, mission, rocket, video, launchTs, streamTs, id } = launch;
   const now = new Date();
   const shouldDisplayDate = (streamTs - TIMER_DATE_THRESHOLD) > now;
-  const rightNow = streamTs < now && launchTs < now
+  const live = streamTs < now
+  const rightNow = live && launchTs < now
 
   return (
     <Link to={`/launches/${id}`} className={cn('root')}>
-      <Card backgroundImage={backgroundImage} shadow height="390px">
+      <Card backgroundImage={image} shadow height="390px">
         {live && <span className={cn('live')}>LIVE</span>}
         <div>
           <LaunchInfo title="Mission" text={mission} />
