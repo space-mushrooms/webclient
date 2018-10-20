@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Main from './containers/Main';
+import Vehicles from './containers/Vehicles';
 import Launch from './containers/Launch';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
@@ -23,6 +24,7 @@ ReactDOM.render((
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Main} />
+        <Route path="/vehicles" component={Vehicles} />
         <Route path="launches/:id" component={Launch} />
         <Route path="profile" component={Launch} />
       </Route>

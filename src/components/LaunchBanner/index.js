@@ -5,18 +5,20 @@ import Card from '../Card';
 import LaunchInfo from '../LaunchInfo';
 import { Link } from 'react-router';
 import format from 'date-fns/format'
+import LaunchShape from '../../shapes/Launch';
 
 const cn = classnames.bind(styles);
 
 const TIMER_DATE_THRESHOLD = 1000 * 60 * 60 * 24 * 5; // 5 days
 
-export default function LaunchBanner({ backgroundImage, mission, rocket, launchTime, live }) {
+export default function LaunchBanner({launch}) {
+  const { image, mission, rocket, video, launchTs, streamTs, id } = launch;
   const now = new Date();
-  const shouldDisplayDate = (launchTime - TIMER_DATE_THRESHOLD) > now;
-  const rightNow = live && launchTime < now;
+  const shouldDisplayDate = (streamTs - TIMER_DATE_THRESHOLD) > now;
+  const rightNow = streamTs < now && launchTs < now
 
   return (
-    <Link to="/" className={cn('root')}>
+    <Link to={`/launches/${id}`} className={cn('root')}>
       <Card backgroundImage={backgroundImage} shadow height="390px">
         {live && <span className={cn('live')}>LIVE</span>}
         <div>
@@ -34,3 +36,7 @@ export default function LaunchBanner({ backgroundImage, mission, rocket, launchT
     </Link>
   );
 }
+
+LaunchBanner.propTypes = {
+  launch: LaunchShape.isRequired,
+};
