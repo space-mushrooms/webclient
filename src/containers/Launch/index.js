@@ -1,20 +1,16 @@
 import React, {PureComponent} from 'react';
+import {Link} from 'react-router';
 import Swipe from '../../components/Swipe';
 import LaunchBanner from '../../components/LaunchBanner';
 import Sliding from '../../components/PageTransition/Sliding';
 import TitledSection from '../../components/TitledSection';
-import launchMock from '../../mock/launch';
 
-export default class MainPage extends PureComponent {
+export default class LaunchPage extends PureComponent {
   render() {
     return (
       <Sliding>
-        <TitledSection title="Upcoming launches" path="/" linkText="See all">
-          <Swipe>
-            <LaunchBanner launch={launchMock} />
-            <LaunchBanner launch={launchMock} />
-            <LaunchBanner launch={launchMock} />
-          </Swipe>
+        <TitledSection title="Launch Page">
+          Launch Page
         </TitledSection>
       </Sliding>
     );

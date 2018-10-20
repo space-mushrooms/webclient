@@ -1,9 +1,0 @@
-.app {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-
-.main {
-  flex: 1;
-}

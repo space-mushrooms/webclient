@@ -1,5 +1,6 @@
 .wrapper {
-  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .swipe {
@@ -8,11 +9,21 @@
   margin: 0 var(--size-gutter-three-quarter);
 }
 
+.mock:after {
+  background: linear-gradient(to left top, #888, #444) #888;
+  border-radius: 10px;
+  bottom: 0;
+  content: '';
+  left: var(--size-gutter);
+  position: absolute;
+  right: var(--size-gutter);
+  top: 0;
+}
+
 .inner {
   display: flex;
   flex-wrap: nowrap;
   max-height: 100%;
-  position: relative;
 }
 
 .child {
