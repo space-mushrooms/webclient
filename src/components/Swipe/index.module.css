@@ -1,5 +1,6 @@
 .wrapper {
   overflow: hidden;
+  position: relative;
 }
 
 .swipe {
@@ -8,11 +9,20 @@
   margin: 0 var(--size-gutter-three-quarter);
 }
 
+.mock:after {
+  background: rgba(0, 0, 0, .5);
+  bottom: 0;
+  content: '';
+  left: var(--size-gutter-three-quarter);
+  position: absolute;
+  right: var(--size-gutter-three-quarter);
+  top: 0;
+}
+
 .inner {
   display: flex;
   flex-wrap: nowrap;
   max-height: 100%;
-  position: relative;
 }
 
 .child {
