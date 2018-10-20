@@ -1,9 +1,6 @@
-.root {
-  color: transparent;
-}
-
-.root:hover {
-  color: transparent;
+.link {
+  text-decoration: none;
+  color: var(--color-text-inverse);
 }
 
 .launchTimer {
@@ -16,8 +13,7 @@
   padding: 10px 15px;
   font-size: 20px;
   align-self: center;
-  color: var(--color-text-inverse);
-  border: 2px solid #FFFFFF;
+  border: 2px solid var(--color-text-inverse);
   border-radius: 12px;
   margin-bottom: 30px;
 }
@@ -32,5 +28,5 @@
 }
 
 .live::before {
-  
+
 }
