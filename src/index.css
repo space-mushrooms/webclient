@@ -23,6 +23,10 @@ html {
   --size-gutter-three-quarter: 1.5rem;
 }
 
+::-webkit-scrollbar { 
+  display: none; 
+}
+
 body {
   background: var(--color-background);
   color: var(--color-text);
