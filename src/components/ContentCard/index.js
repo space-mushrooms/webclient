@@ -8,7 +8,7 @@ const cn = classnames.bind(styles);
 
 export default function LaunchCard({title, image, backToTitle, backToUrl}) {
   return (
-    <Card backgroundImage={image} gradient height="225px">
+    <Card boxShadow={false} backgroundImage={image} gradient height="225px">
       <BackLink text={backToTitle} path={backToUrl} marginBottom />
       <div className={cn('title')}>
         {title}
