@@ -20,3 +20,7 @@
 .contentWrapper li {
   margin-bottom: 1rem;
 }
+
+.contentWrapper a {
+  text-decoration: none;
+}
