@@ -1,5 +1,5 @@
 .navbar {
-  background: #000;
+  background: #F4F4F4;
   bottom: 0;
   display: flex;
   flex-wrap: nowrap;
@@ -11,17 +11,25 @@
 
 .item {
   align-self: center;
-  color: var(--color-text-inverse);
+  color: #BDBDBD;
   flex: 1;
   font-size: 2rem;
   justify-content: space-around;
-  padding: var(--size-gutter);
+  padding: var(--size-gutter-half);
   text-align: center;
   text-decoration: none;
 }
 
+.item:hover {
+  color: #BDBDBD;
+}
+
+.active:hover {
+  color: #2D9CDB;
+}
+
 .active {
-  background: rgba(255, 255, 255, .2);
+  color: #2D9CDB;
 }
 
 .navbarSpacer {
