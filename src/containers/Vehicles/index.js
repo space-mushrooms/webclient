@@ -14,9 +14,9 @@ class Vehicles extends PureComponent {
   }
 
   componentDidMount() {
-    Api.getInstance().loadVehicles().then(vehicles => {
-      this.setState({data: vehicles});
-    })
+    const vehicles = Api.getInstance().loadVehicles();
+
+    this.setState({data: vehicles});
   }
 
   render() {

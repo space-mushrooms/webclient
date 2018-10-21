@@ -11,7 +11,7 @@ export const launchMockRightNow = {
 export const launchMockIss = {
   id: '2',
   mission: 'Commercial Crew SpaceX',
-  rocket: 'SpaceX Falcon Heavy',
+  rocket: 'SpaceX Falcon 9',
   video: 'https://coubsecure-s.akamaihd.net/get/b151/p/coub/simple/cw_file/9797a93278f/1b689ed594b9b17f88b2e/gifv_1539470990_5362149_gifv.mp4',
   image: 'https://images-assets.nasa.gov/image/201304210010HQ/201304210010HQ~medium.jpg',
   launchTs: Date.now() - 1000,
@@ -21,7 +21,7 @@ export const launchMockIss = {
 export const launchMockDate = {
   id: '3',
   mission: 'Commercial Crew SpaceX',
-  rocket: 'SpaceX Falcon Heavy',
+  rocket: 'SpaceX Falcon 9',
   video: 'https://coubsecure-s.akamaihd.net/get/b62/p/coub/simple/cw_file/baa1e488126/368683b651d989b489ba7/gifv_1518339696_53445_gifv.mp4',
   image: 'https://images-assets.nasa.gov/image/201304210010HQ/201304210010HQ~medium.jpg',
   launchTs: Date.now() + (1000 * 60 * 60 * 24 * 10),

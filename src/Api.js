@@ -11,8 +11,7 @@ export default class Api {
     return instance;
   }
 
-  async loadVehicles() {
-    await emulateLatency(300);
+  loadVehicles() {
     return list;
     // return this.fetchApi('rocket');
   }

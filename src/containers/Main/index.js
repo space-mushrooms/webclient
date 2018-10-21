@@ -43,7 +43,7 @@ class MainPage extends PureComponent {
         </TitledSection>
         <TitledSection marginTop title="Astronauts" path="/" linkText="See all">
           <Swipe>
-            {astronauts.map(astronaut => <FactCard image={astronaut.imgUrl} fact={astronaut.title} description={astronaut.text} to={`/astronauts/${astronaut.id}`}/>)}
+            {astronauts.map(astronaut => <FactCard key={astronaut.id} image={astronaut.imgUrl} fact={astronaut.title} description={astronaut.text} to={`/astronauts/${astronaut.id}`}/>)}
           </Swipe>
         </TitledSection>
       </React.Fragment>
