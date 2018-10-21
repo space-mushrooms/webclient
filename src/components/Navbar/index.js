@@ -14,7 +14,7 @@ export default function Navbar({ children }) {
   return (
     <React.Fragment>
       <nav className={cn('navbar')}>
-        <Item to="/">O</Item>
+        <Item to="/main">O</Item>
         <Item to="/schedule">O</Item>
         <Item to="/some">O</Item>
         <Item to="/profile">

@@ -9,7 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from './reducers'
-import {Router, Route, IndexRoute, browserHistory} from 'react-router'
+import {Router, Route, IndexRoute, IndexRedirect, browserHistory} from 'react-router'
 import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux'
 
 const store = createStore(
@@ -27,7 +27,8 @@ ReactDOM.render((
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={Main} />
+        <IndexRedirect to="/main" />
+        <Route path="/main" component={Main} />
         <Route path="/vehicles" component={Vehicles} />
         <Route path="launches/:id" component={Launch} />
         <Route path="profile" component={Launch} />
