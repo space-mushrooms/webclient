@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import Main from './containers/Main';
 import Vehicles from './containers/Vehicles';
-import Launch from './containers/Launch';
+import Launch, {LaunchExpanding} from './containers/Launch';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux';
@@ -31,6 +31,7 @@ ReactDOM.render((
         <IndexRedirect to="/main" />
         <Route path="/main" component={Main} />
         <Route path="/vehicles" component={Vehicles} />
+        <Route path="main/launches/:id" component={LaunchExpanding} />
         <Route path="launches/:id" component={Launch} />
         <Route path="profile" component={Launch} />
       </Route>

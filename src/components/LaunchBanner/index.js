@@ -30,7 +30,7 @@ class LaunchBanner extends Component {
   }
 
   getPathname() {
-    return `/launches/${this.props.launch.id}`;
+    return `/main/launches/${this.props.launch.id}`;
   }
 
   handleClick = evt => {

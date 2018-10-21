@@ -4,7 +4,8 @@ import styles from './index.module.css';
 
 const cn = classnames.bind(styles);
 
-export default function sliding({leave, appear}) {
+export default function sliding(options = {leave: true, appear: true}) {
+  const {leave, appear} = options;
   return InnerComponent => {
     return class Sliding extends PureComponent {
       onTransitionDidEnd() {
