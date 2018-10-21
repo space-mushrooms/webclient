@@ -27,9 +27,9 @@ class MainPage extends PureComponent {
             <LaunchBanner launch={launchMockTimer} />
           </Swipe>
         </TitledSection>
-        <TitledSection title="Rockets">
+        <TitledSection marginTop title="Launch vehicles">
           <Reducer>
-            <FactCard image={DEFAULT_IMAGE} fact={ROCKETS_ARE_COOL} to="/" />
+            <FactCard image={DEFAULT_IMAGE} fact={ROCKETS_ARE_COOL} to="/vehicles" />
           </Reducer>
         </TitledSection>
         <TitledSection marginTop title="Missions" path="/" linkText="See all">
