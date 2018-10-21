@@ -15,8 +15,8 @@ html {
   --color-text: #2d2f43;
   --color-header: #000;
   --color-text-inverse: #fff;
-  --color-link: blue;
-  --color-link-hover: lightblue;
+  --color-link: #00a2f8;
+  --color-link-hover: #f80000;
   --size-gutter: 2rem;
   --size-gutter-half: 1rem;
   --size-gutter-quarter: .5rem;

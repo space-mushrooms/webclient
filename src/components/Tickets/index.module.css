@@ -1,0 +1,7 @@
+.tickets {
+  border-collapse: collapse;
+  border: 0;
+  margin: .5em 0;
+  max-width: 15em;
+  width: 100%;
+}
