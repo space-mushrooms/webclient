@@ -28,4 +28,4 @@ class AstronautPage extends PureComponent {
 }
 
 export default slidingTransition()(AstronautPage);
-export const ContentExpanding = launchExpandTransition()(AstronautPage);
+export const AstronautExpanding = launchExpandTransition({height: '225px'})(AstronautPage);

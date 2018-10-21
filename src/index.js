@@ -13,7 +13,7 @@ import rootReducer from './reducers'
 import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
 import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux'
 import identity from 'lodash/identity';
-import AstronautPage from './containers/Astronaut';
+import AstronautPage, {AstronautExpanding} from './containers/Astronaut';
 import MissionPage, {MissionExpanding} from './containers/MissionPage';
 
 const store = createStore(
@@ -34,10 +34,12 @@ ReactDOM.render((
         <IndexRedirect to="/main" />
         <Route path="/main" component={Main} />
         <Route path="/vehicles" component={Vehicles} />
+        <Route path="/main/vehicles" component={Vehicles} />
         <Route backToTitle="Main" backToUrl="/main" path="main/launches/:id" component={LaunchExpanding} />
         <Route backToTitle="Main" backToUrl="/main" path="launches/:id" component={Launch} />
         <Route backToTitle="Launch vehicles" backToUrl="/vehicles" path="/vehicles/:id" component={ContentPage} />
         <Route backToTitle="Main" backToUrl="/" path="/astronauts/:id" component={AstronautPage} />
+        <Route backToTitle="Main" backToUrl="/" path="/main/astronauts/:id" component={AstronautExpanding} />
         <Route backToTitle="Main" backToUrl="/" path="/mission/:id" component={MissionPage} />
         <Route backToTitle="Main" backToUrl="/" path="/main/mission/:id" component={MissionExpanding} />
         <Route path="profile" component={Launch} />
