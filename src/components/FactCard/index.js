@@ -6,7 +6,7 @@ import Card from '../Card';
 
 const cn = classnames.bind(styles);
 
-export default function FactCard({ image, fact, gradient, to }) {
+export default function FactCard({ image, fact, to }) {
   return (
     <Link className={cn('link')} to={to}>
       <Card gradient backgroundImage={image} height="210px">
