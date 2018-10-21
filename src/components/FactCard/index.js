@@ -9,7 +9,7 @@ const cn = classnames.bind(styles);
 export default function FactCard({ image, fact, to, description }) {
   return (
     <Link className={cn('link')} to={to}>
-      <Card gradient backgroundImage={image} height="210px">
+      <Card borderRadius gradient backgroundImage={image} height="210px">
         <div className={cn('cardFact')}>
           {fact}
         </div>

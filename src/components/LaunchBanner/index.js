@@ -8,13 +8,10 @@ import styles from './index.module.css';
 import Card from '../Card';
 import LaunchInfo from '../LaunchInfo';
 import { Link } from 'react-router';
-import format from 'date-fns/format'
 import LaunchShape from '../../shapes/Launch';
-import Timer from '../Timer';
+import LaunchTimer from '../LaunchTimer';
 
 const cn = classnames.bind(styles);
-
-const TIMER_DATE_THRESHOLD = 1000 * 60 * 60 * 24 * 1; // 5 days
 
 class LaunchBanner extends Component {
   static propTypes = {
@@ -56,11 +53,8 @@ class LaunchBanner extends Component {
 
   render() {
     const { image, mission, rocket, video, launchTs, streamTs } = this.props.launch;
-    const now = new Date();
-    const shouldDisplayDate = (streamTs - TIMER_DATE_THRESHOLD) > now;
+    const now = Date.now();
     const live = streamTs < now;
-    const rightNow = launchTs < now;
-    const showTimer = !rightNow && !shouldDisplayDate;
 
     return (
       <div ref={this.ref}>
@@ -69,17 +63,13 @@ class LaunchBanner extends Component {
           to={this.getPathname()}
           className={cn('link')}
         >
-          <Card ref={this.refCard} backgroundImage={image} video={video} shadow height="390px">
+          <Card borderRadius ref={this.refCard} backgroundImage={image} video={video} shadow height="390px">
             {live && <span className={cn('live')}>LIVE</span>}
-            <div className={cn('info')}>
+            <div>
               <LaunchInfo title="Mission" text={mission} />
               <LaunchInfo title="Rocket" text={rocket} />
             </div>
-            <div className={cn('launchTimer')}>
-              {rightNow && 'Right now'}
-              {shouldDisplayDate && format(now, 'MM/DD/YY')}
-              {showTimer && <Timer timestamp={launchTs} onComplete={this.handleTimerComplete} />}
-            </div>
+            <LaunchTimer launchTs={launchTs} onComplete={this.handleTimerComplete} />
             <div className={cn('explore')}>
               Explore now
             </div>
