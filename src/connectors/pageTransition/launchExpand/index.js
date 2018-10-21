@@ -37,7 +37,7 @@ export default function sliding() {
       }
 
       onTransitionDidEnd() {
-        // Do your stuff here
+        document.documentElement.scrollTop = 0;
       }
 
       transitionManuallyStart() {
@@ -48,7 +48,6 @@ export default function sliding() {
       }
 
       transitionManuallyStop() {
-        document.documentElement.scrollTop = 0;
         this.setState({
           doTransform: false,
         });
@@ -58,7 +57,7 @@ export default function sliding() {
         const {doTransform, style, launch, currenctTime} = this.state;
         console.log(style);
         return (
-          <React.Fragment>
+          <div className={cn('wrapper')}>
             <div className={`${cn('page')} transition-item`}>
               <InnerComponent {...this.props} />
             </div>
@@ -72,7 +71,7 @@ export default function sliding() {
                 </div>
               </React.Fragment>
             ) : null}
-          </React.Fragment>
+          </div>
         );
       }
     }
