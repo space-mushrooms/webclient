@@ -5,11 +5,12 @@ import App from './App';
 import Main from './containers/Main';
 import Vehicles from './containers/Vehicles';
 import Launch, {LaunchExpanding} from './containers/Launch';
+import ContentPage from './containers/Content';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from './reducers'
-import {Router, Route, IndexRoute, IndexRedirect, browserHistory} from 'react-router'
+import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
 import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux'
 import identity from 'lodash/identity';
 
@@ -33,6 +34,7 @@ ReactDOM.render((
         <Route path="/vehicles" component={Vehicles} />
         <Route backToTitle="Main" backToUrl="/main" path="main/launches/:id" component={LaunchExpanding} />
         <Route backToTitle="Main" backToUrl="/main" path="launches/:id" component={Launch} />
+        <Route backToTitle="Launch vehicles" backToUrl="/vehicles" path="/vehicles/:id" component={ContentPage} />
         <Route path="profile" component={Launch} />
       </Route>
     </Router>
