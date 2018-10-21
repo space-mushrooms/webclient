@@ -1,7 +1,7 @@
 import classnames from 'classnames/bind';
 import React from 'react';
 import TicketShape from '../../shapes/Ticket';
-import styles from './index.module.css';
+import styles from './Ticket.module.css';
 
 const cn = classnames.bind(styles);
 

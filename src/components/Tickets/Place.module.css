@@ -1,0 +1,23 @@
+.place {
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar {
+  align-self: center;
+  border-radius: 100%;
+  height: 5rem;
+  object-fit: cover;
+  width: 5rem;
+}
+
+.content {
+  align-self: center;
+  flex: 1;
+  padding-left: 1rem;
+}
+
+.date {
+  opacity: .6;
+  font-size: .8em;
+}

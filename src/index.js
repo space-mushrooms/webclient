@@ -15,6 +15,7 @@ import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux'
 import identity from 'lodash/identity';
 import Astronaut1Page from './containers/Astronaut1';
 import Astronaut2Page from './containers/Astronaut1';
+import MissionPage from './containers/MissionPage';
 
 const store = createStore(
     rootReducer,
@@ -39,6 +40,7 @@ ReactDOM.render((
         <Route backToTitle="Launch vehicles" backToUrl="/vehicles" path="/vehicles/:id" component={ContentPage} />
         <Route backToTitle="Astronauts" backToUrl="/" path="/astronauts/1" component={Astronaut1Page} />
         <Route backToTitle="Astronauts" backToUrl="/" path="/astronauts/2" component={Astronaut2Page} />
+        <Route backToTitle="Main" backToUrl="/" path="/mission/:id" component={MissionPage} />
         <Route path="profile" component={Launch} />
       </Route>
     </Router>

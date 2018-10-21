@@ -7,6 +7,7 @@ import {
   launchMockRightNow,
   launchMockDate,
   launchMockTimer,
+  launchMockIss,
 } from '../../mock/launch';
 import FactCard from '../../components/FactCard';
 import Reducer from '../../components/Reducer';
@@ -26,6 +27,7 @@ class MainPage extends PureComponent {
             <LaunchBanner launch={launchMockRightNow} />
             <LaunchBanner launch={launchMockDate} />
             <LaunchBanner launch={launchMockTimer} />
+            <LaunchBanner launch={launchMockIss} />
           </Swipe>
         </TitledSection>
         <TitledSection marginTop title="Launch vehicles">
@@ -35,9 +37,10 @@ class MainPage extends PureComponent {
         </TitledSection>
         <TitledSection marginTop title="Missions" path="/" linkText="See all">
           <Swipe>
-            <FactCard image={DEFAULT_IMAGE} fact="Landsat program" description="The longest-running enterprise for acquisition of satellite imagery of Earth" to="/" />
-            <FactCard image={DEFAULT_IMAGE} fact={MISSIONS_ARE_COOL} to="/" />
-            <FactCard image={DEFAULT_IMAGE} fact={MISSIONS_ARE_COOL} to="/" />
+            <FactCard image="https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/pia22207-16.jpg" fact="Curiosity Rover" description="Long-term effort of robotic exploration of the red planet" to="/mission/1" />
+            <FactCard image="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Orb_CRS-1_unberthing_-_crop.jpg/1920px-Orb_CRS-1_unberthing_-_crop.jpg" fact="Northrop Grumman Commercial Resupply" description="Successful partnership with two American companies to resupply the International Space Station" to="/mission/2" />
+            <FactCard image="https://www.nasa.gov/sites/default/files/thumbnails/image/s125e012033_1.jpg" fact="Hubble Space Telescope" description="The first major optical telescope to be placed in space" to="/mission/3" />
+            <FactCard image="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Island_of_Hawai%27i_-_Landsat_mosaic.jpg/1920px-Island_of_Hawai%27i_-_Landsat_mosaic.jpg" fact="Landsat program" description="The longest-running enterprise for acquisition of satellite imagery of Earth" to="/mission/4" />
           </Swipe>
         </TitledSection>
         <TitledSection marginTop title="Astronauts" path="/" linkText="See all">
