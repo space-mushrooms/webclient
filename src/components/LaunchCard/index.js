@@ -1,5 +1,5 @@
 import BackLink from '../BackLink';
-import Card from '../Card';
+import Card, {CardReducer} from '../Card';
 import classnames from 'classnames/bind';
 import HyperText from '../HyperText';
 import LaunchInfo from '../LaunchInfo';
@@ -32,13 +32,15 @@ export default class LaunchCard extends Component {
       <React.Fragment>
         <Card backgroundImage={image} video={video} shadow height="275px">
           <BackLink text={backToTitle} path={backToUrl} marginBottom />
-          <div className={cn('info')}>
-            <LaunchInfo title="Mission" text={mission} />
-            <LaunchInfo title="Rocket" text={rocket} />
-          </div>
-          <div className={cn('launchTimer')}>
-            <LaunchTimer launchTs={launchTs} onComplete={this.handleTimerComplete} />
-          </div>
+          <CardReducer>
+            <div className={cn('info')}>
+              <LaunchInfo title="Mission" text={mission} />
+              <LaunchInfo title="Rocket" text={rocket} />
+            </div>
+            <div className={cn('launchTimer')}>
+              <LaunchTimer launchTs={launchTs} onComplete={this.handleTimerComplete} />
+            </div>
+          </CardReducer>
         </Card>
         <Reducer>
           <HyperText>

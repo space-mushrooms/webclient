@@ -4,6 +4,14 @@ import styles from './index.module.css';
 
 const cn = classnames.bind(styles);
 
+export const CardReducer = function({children}) {
+  return (
+    <div className={cn('reducer')}>
+      {children}
+    </div>
+  );
+}
+
 export default class Card extends PureComponent {
   constructor(props) {
     super(props);
