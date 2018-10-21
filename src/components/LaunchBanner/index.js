@@ -27,9 +27,6 @@ class LaunchBanner extends Component {
     this.ref = React.createRef();
     this.refCard = React.createRef();
     this.handleClick = this.handleClick.bind(this);
-    this.state = {
-      opening: false,
-    };
   }
 
   getPathname() {
@@ -39,8 +36,6 @@ class LaunchBanner extends Component {
   handleClick = evt => {
     evt.preventDefault();
     const video = this.refCard.current && this.refCard.current.getVideo();
-
-    this.setState({opening: true});
 
     this.props.push({
       pathname: this.getPathname(),
@@ -61,7 +56,6 @@ class LaunchBanner extends Component {
 
   render() {
     const { image, mission, rocket, video, launchTs, streamTs } = this.props.launch;
-    const { opening } = this.state;
     const now = new Date();
     const shouldDisplayDate = (streamTs - TIMER_DATE_THRESHOLD) > now;
     const live = streamTs < now;
@@ -69,7 +63,7 @@ class LaunchBanner extends Component {
     const showTimer = !rightNow && !shouldDisplayDate;
 
     return (
-      <div ref={this.ref} className={cn({opening})}>
+      <div ref={this.ref}>
         <Link
           onClick={this.handleClick}
           to={this.getPathname()}

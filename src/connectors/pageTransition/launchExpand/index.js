@@ -7,28 +7,32 @@ const cn = classnames.bind(styles);
 export default function sliding() {
   return InnerComponent => {
     return class launchExpand extends PureComponent {
+      constructor(props) {
+        super(props);
+        this.state = {};
+      }
+
       onTransitionWillStart(data) {
         const state = this.props.location.state;
-        if (!state.clickType) {
+        if (!state || !state.clickType) {
           // Default animate position if user goto this page directly
-
           this.setState({
-            doTransform: true,
-            position: { top: 0, left: 0, height: 10, width: 10 },
-            color: 'gray',
-            borderRadius: 200,
+            doTransform: false,
           });
           return;
         }
+
         this.setState({
           doTransform: true,
-          position: {
+          style: {
+            borderRadius: '10px',
             top: state.clickPayload.rect.top,
             height: state.clickPayload.rect.height,
             left: state.clickPayload.rect.left,
             width: state.clickPayload.rect.width,
           },
-          currenctTime: state.clickPayload.currenctTime,
+          launch: state.clickPayload.launch,
+          currenctTime: state.clickPayload.currenctTime || 0,
         });
       }
 
@@ -38,28 +42,37 @@ export default function sliding() {
 
       transitionManuallyStart() {
         this.setState({
-          position: {
-            top: 0,
-            height: '100%',
-            left: 0,
-            width: '100%',
-          },
-          borderRadius: 0,
+          style: null,
           doTransform: true,
         });
       }
 
       transitionManuallyStop() {
+        document.documentElement.scrollTop = 0;
         this.setState({
           doTransform: false,
         });
       }
 
       render() {
+        const {doTransform, style, launch, currenctTime} = this.state;
+        console.log(style);
         return (
-          <div className={`${cn('page')} transition-item`}>
-            <InnerComponent {...this.props} />
-          </div>
+          <React.Fragment>
+            <div className={`${cn('page')} transition-item`}>
+              <InnerComponent {...this.props} />
+            </div>
+            {doTransform ? (
+              <React.Fragment>
+                <div className={cn('overlay')} />
+                <div className={cn('block')} style={style}>
+                  {(launch && launch.video) ? (
+                    <video className={cn('video')} src={`${launch.video}#t=${currenctTime}`} />
+                  ) : null}
+                </div>
+              </React.Fragment>
+            ) : null}
+          </React.Fragment>
         );
       }
     }

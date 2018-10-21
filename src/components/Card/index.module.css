@@ -18,6 +18,11 @@
 
 .overlayShadow {
   background: rgba(0, 0, 0, 0.6);
+  transition: background .2s ease-in;
+}
+
+.opening .overlayShadow {
+  background: rgba(0, 0, 0, 1);
 }
 
 .overlayGradient {

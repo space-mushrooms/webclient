@@ -15,23 +15,23 @@ export default class LaunchCard extends Component {
   };
 
   render() {
+    const {launch, location} = this.props;
     return (
       <div>
-        <Card backgroundImage={image} video={video}>
-          {live && <span className={cn('live')}>LIVE</span>}
-          <div>
-            <LaunchInfo title="Mission" text={mission} />
-            <LaunchInfo title="Rocket" text={rocket} />
-          </div>
-          <div className={cn('launchTimer')}>
-            {rightNow && 'Right now'}
-            {shouldDisplayDate && format(now, 'MM/DD/YY')}
-            {showTimer && <Timer timestamp={launchTs} />}
-          </div>
-          <div className={cn('explore')}>
-            Explore now
-          </div>
-        </Card>
+        <div className={cn('header')}>
+          {(launch && launch.video) ? (
+            <video
+              className={cn('video')}
+              src={launch.video}
+              autoPlay
+              loop
+              muted
+              controls={false}
+              height="100%"
+              width="100%"
+            />
+          ) : null}
+        </div>
       </div>
     );
   }

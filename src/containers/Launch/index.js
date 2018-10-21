@@ -1,13 +1,12 @@
 import React, {PureComponent} from 'react';
-import TitledSection from '../../components/TitledSection';
+import LaunchCard from '../../components/LaunchCard';
+import {launchMockRightNow} from '../../mock/launch';
 import launchExpandTransition from '../../connectors/pageTransition/launchExpand';
 
 class LaunchPage extends PureComponent {
   render() {
     return (
-      <TitledSection title="Launch Page">
-        Launch Page
-      </TitledSection>
+      <LaunchCard launch={launchMockRightNow} />
     );
   }
 }
