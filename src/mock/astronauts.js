@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default [{
   id: '1',
   title: 'Nick Hague',
@@ -9,3 +11,9 @@ export default [{
   text: 'Russian Air Force Major and cosmonaut',
   imgUrl: 'https://i.imgur.com/04v3Ci7.jpg',
 }];
+
+export const astronautsContent = [(
+  <div>1</div>
+), (
+  <div>2</div>
+)];
