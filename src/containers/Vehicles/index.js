@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import ListPage from '../../components/ListPage';
+import slidingTransition from '../../connectors/pageTransition/sliding';
 
 const mockData = [{
   id: 'test1',
@@ -23,7 +24,7 @@ const mockData = [{
   imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/UC-12B_-_BuNo_161512_%283326008246%29.jpg/500px-UC-12B_-_BuNo_161512_%283326008246%29.jpg',
 }];
 
-export default class Vehicles extends PureComponent {
+class Vehicles extends PureComponent {
   render() {
     return (
       <ListPage
@@ -34,3 +35,5 @@ export default class Vehicles extends PureComponent {
     );
   }
 }
+
+export default slidingTransition()(Vehicles);
