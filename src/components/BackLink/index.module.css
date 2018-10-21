@@ -1,0 +1,19 @@
+.backLink {
+  text-decoration: none;
+  line-height: 22px;
+  font-size: 17px;
+  color: var(--text-color-inverse);
+}
+
+.text {
+  vertical-align: middle;
+}
+
+.icon {
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.marginBottom {
+  margin-bottom: 10px;
+}

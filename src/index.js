@@ -31,8 +31,8 @@ ReactDOM.render((
         <IndexRedirect to="/main" />
         <Route path="/main" component={Main} />
         <Route path="/vehicles" component={Vehicles} />
-        <Route backTo="main" path="main/launches/:id" component={LaunchExpanding} />
-        <Route path="launches/:id" component={Launch} />
+        <Route backToTitle="Main" backToUrl="/main" path="main/launches/:id" component={LaunchExpanding} />
+        <Route backToTitle="Main" backToUrl="/main" path="launches/:id" component={Launch} />
         <Route path="profile" component={Launch} />
       </Route>
     </Router>

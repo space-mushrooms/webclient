@@ -1,11 +1,11 @@
 import classnames from 'classnames/bind';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styles from './index.module.css';
 import Card from '../Card';
 import LaunchInfo from '../LaunchInfo';
-import format from 'date-fns/format'
 import LaunchShape from '../../shapes/Launch';
-import Timer from '../Timer';
+import LaunchTimer from '../LaunchTimer';
+import BackLink from '../BackLink';
 
 const cn = classnames.bind(styles);
 
@@ -14,25 +14,25 @@ export default class LaunchCard extends Component {
     launch: LaunchShape.isRequired,
   };
 
+  handleTimerComplete = () => {
+    this.forceUpdate();
+  }
+
   render() {
-    const {launch, location} = this.props;
+    const { launch, backToTitle, backToUrl } = this.props;
+    const { image, mission, rocket, video, launchTs } = launch;
+
     return (
-      <div>
-        <div className={cn('header')}>
-          {(launch && launch.video) ? (
-            <video
-              className={cn('video')}
-              src={launch.video}
-              autoPlay
-              loop
-              muted
-              controls={false}
-              height="100%"
-              width="100%"
-            />
-          ) : null}
+      <Card backgroundImage={image} video={video} shadow height="275px">
+        <BackLink text={backToTitle} path={backToUrl} marginBottom />
+        <div className={cn('info')}>
+          <LaunchInfo title="Mission" text={mission} />
+          <LaunchInfo title="Rocket" text={rocket} />
         </div>
-      </div>
+        <div className={cn('launchTimer')}>
+          <LaunchTimer launchTs={launchTs} onComplete={this.handleTimerComplete} />
+        </div>
+      </Card>
     );
   }
 }

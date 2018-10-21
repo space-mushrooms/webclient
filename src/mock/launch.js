@@ -27,3 +27,9 @@ export const launchMockTimer = {
   launchTs: Date.now() + (1000 * 60),
   streamTs: Date.now() + (1000 * 60),
 }
+
+export const byId = {
+  [launchMockRightNow.id]: launchMockRightNow,
+  [launchMockDate.id]: launchMockDate,
+  [launchMockTimer.id]: launchMockTimer,
+}
