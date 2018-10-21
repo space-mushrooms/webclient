@@ -4,7 +4,6 @@ import styles from './index.module.css';
 
 const cn = classnames.bind(styles);
 
-
 export default class Card extends PureComponent {
   constructor(props) {
     super(props);
@@ -16,19 +15,18 @@ export default class Card extends PureComponent {
   }
 
   render() {
-    const { children, backgroundImage, video, height, shadow } = this.props;
+    const {children, backgroundImage, video, height, shadow, gradient} = this.props;
+    const hasOverlay = shadow || gradient;
 
     return (
       <div
-        className={cn('rootBase', {root: !shadow})}
+        className={cn('rootBase', {root: !hasOverlay})}
         style={{
           backgroundImage: `url(${backgroundImage})`,
           height,
         }}
       >
         <video
-          ref={this.videoRef}
-          key="video"
           className={cn('video')}
           src={video}
           autoPlay
@@ -38,12 +36,12 @@ export default class Card extends PureComponent {
           height="100%"
           width="100%"
         />
-        {shadow ? (
-          <div className={cn('overlay', 'root')}>
+        {hasOverlay ? (
+          <div className={cn('overlay', 'root', {overlayShadow: shadow, overlayGradient: gradient})}>
             {children}
           </div>
         ) : children}
       </div>
-    );
+    )
   }
 }

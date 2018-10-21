@@ -1,6 +1,6 @@
 import classnames from 'classnames/bind';
 import React from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 import AchievementIcon from '../AchievementIcon';
 import styles from './index.module.css';
 
@@ -10,15 +10,18 @@ function Item(props) {
   return <Link activeClassName={cn('active')} className={cn('item')} {...props} />;
 }
 
-export default function Navbar({children}) {
+export default function Navbar({ children }) {
   return (
-    <nav className={cn('navbar')}>
-      <Item to="/">O</Item>
-      <Item to="/schedule">O</Item>
-      <Item to="/some">O</Item>
-      <Item to="/profile">
-        <AchievementIcon level={AchievementIcon.Level.COLONEL} />
-      </Item>
-    </nav>
+    <React.Fragment>
+      <nav className={cn('navbar')}>
+        <Item to="/">O</Item>
+        <Item to="/schedule">O</Item>
+        <Item to="/some">O</Item>
+        <Item to="/profile">
+          <AchievementIcon level={AchievementIcon.Level.COLONEL} />
+        </Item>
+      </nav>
+      <div className={cn('navbarSpacer')} />
+    </React.Fragment>
   );
 }
