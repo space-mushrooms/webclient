@@ -15,12 +15,16 @@ export default class Card extends PureComponent {
   }
 
   render() {
-    const {children, backgroundImage, video, height, shadow, gradient, borderRadius} = this.props;
+    const {children, backgroundImage, video, height, shadow, boxShadow = true, gradient, borderRadius} = this.props;
     const hasOverlay = shadow || gradient;
 
     return (
       <div
-        className={cn('rootBase', {root: !hasOverlay, borderRadius: borderRadius})}
+        className={cn('rootBase', {
+          root: !hasOverlay,
+          boxShadow: boxShadow,
+          borderRadius: borderRadius
+        })}
         style={{
           backgroundImage: `url(${backgroundImage})`,
           height,
