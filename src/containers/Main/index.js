@@ -37,9 +37,9 @@ class MainPage extends PureComponent {
         </TitledSection>
         <TitledSection marginTop title="Missions" path="/" linkText="See all">
           <Swipe>
-            <FactCard image={DEFAULT_IMAGE} fact="Landsat program" description="The longest-running enterprise for acquisition of satellite imagery of Earth" to="/" />
-            <FactCard image={DEFAULT_IMAGE} fact={MISSIONS_ARE_COOL} to="/" />
-            <FactCard image={DEFAULT_IMAGE} fact={MISSIONS_ARE_COOL} to="/" />
+            <FactCard image={DEFAULT_IMAGE} fact="Landsat program" description="The longest-running enterprise for acquisition of satellite imagery of Earth" to="/mission/1" />
+            <FactCard image={DEFAULT_IMAGE} fact={MISSIONS_ARE_COOL} to="/mission/2" />
+            <FactCard image={DEFAULT_IMAGE} fact={MISSIONS_ARE_COOL} to="/mission/3" />
           </Swipe>
         </TitledSection>
         <TitledSection marginTop title="Astronauts" path="/" linkText="See all">
