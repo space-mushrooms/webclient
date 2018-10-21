@@ -11,12 +11,13 @@ import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from './reducers'
 import {Router, Route, IndexRoute, IndexRedirect, browserHistory} from 'react-router'
 import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux'
+import identity from 'lodash/identity';
 
 const store = createStore(
     rootReducer,
     compose(
       applyMiddleware(routerMiddleware(browserHistory)),
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+      window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : identity,
     )
 );
 
