@@ -3,12 +3,6 @@
   color: var(--color-text-inverse);
 }
 
-.launchTimer {
-  font-weight: bold;
-  font-size: 60px;
-  text-align: center;
-}
-
 .explore {
   padding: 10px 15px;
   font-size: 20px;

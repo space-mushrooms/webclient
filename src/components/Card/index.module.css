@@ -1,7 +1,6 @@
 .rootBase {
   color: var(--color-text-inverse);
   background: rgba(0, 0, 0, 0.6) 50% 50% / cover no-repeat;
-  border-radius: 10px;
   overflow: hidden;
   position: relative;
   box-shadow: 0 6px 8px rgba(0,0,0,0.25);
@@ -9,11 +8,14 @@
 }
 
 .overlay {
-  border-radius: 10px;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
   position: relative;
+}
+
+.borderRadius {
+  border-radius: 10px;
 }
 
 .overlayShadow {

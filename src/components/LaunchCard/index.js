@@ -1,12 +1,17 @@
+import BackLink from '../BackLink';
+import Card from '../Card';
 import classnames from 'classnames/bind';
-import React, {Component} from 'react';
-import styles from './index.module.css';
-import {Tweet} from 'react-twitter-widgets'
 import HyperText from '../HyperText';
-import Reducer from '../Reducer';
-import Tickets from '../Tickets';
+import LaunchInfo from '../LaunchInfo';
 import LaunchShape from '../../shapes/Launch';
+import LaunchTimer from '../LaunchTimer';
+import React, { Component } from 'react';
+import Reducer from '../Reducer';
+import styles from './index.module.css';
 import tickets from '../../mock/tickets';
+import Tickets from '../Tickets';
+import {Tweet} from 'react-twitter-widgets'
+
 const cn = classnames.bind(styles);
 
 export default class LaunchCard extends Component {
@@ -14,24 +19,26 @@ export default class LaunchCard extends Component {
     launch: LaunchShape.isRequired,
   };
 
+  handleTimerComplete = () => {
+    this.forceUpdate();
+  }
+
   render() {
-    const {launch} = this.props;
+    const { launch, backToTitle, backToUrl } = this.props;
+    const { image, mission, rocket, video, launchTs } = launch;
+
     return (
-      <div>
-        <div className={cn('header')}>
-          {(launch && launch.video) ? (
-            <video
-              className={cn('video')}
-              src={launch.video}
-              autoPlay
-              loop
-              muted
-              controls={false}
-              height="100%"
-              width="100%"
-            />
-          ) : null}
-        </div>
+      <React.Fragment>
+        <Card backgroundImage={image} video={video} shadow height="275px">
+          <BackLink text={backToTitle} path={backToUrl} marginBottom />
+          <div className={cn('info')}>
+            <LaunchInfo title="Mission" text={mission} />
+            <LaunchInfo title="Rocket" text={rocket} />
+          </div>
+          <div className={cn('launchTimer')}>
+            <LaunchTimer launchTs={launchTs} onComplete={this.handleTimerComplete} />
+          </div>
+        </Card>
         <Reducer>
           <HyperText>
             <HyperText.H2>About</HyperText.H2>
@@ -63,7 +70,7 @@ export default class LaunchCard extends Component {
             <Tickets tickets={tickets} />
           </HyperText>
         </Reducer>
-      </div>
+      </React.Fragment>
     );
   }
 }
