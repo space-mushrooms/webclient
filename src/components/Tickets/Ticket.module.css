@@ -1,0 +1,26 @@
+.ticket > td {
+  padding-bottom: .6em;
+}
+
+.name {
+  padding-right: 1em;
+}
+
+.price {
+  text-align: right;
+  padding-right: 1em;
+}
+
+.buy {
+  text-align: right;
+}
+
+.link,
+.link:hover {
+  background: var(--color-link);
+  border-radius: .3em;
+  color: var(--color-text-inverse);
+  display: inline-block;
+  padding: .25em .7em;
+  text-decoration: none;
+}

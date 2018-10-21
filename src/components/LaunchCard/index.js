@@ -5,6 +5,7 @@ import HyperText from '../HyperText';
 import LaunchInfo from '../LaunchInfo';
 import LaunchShape from '../../shapes/Launch';
 import LaunchTimer from '../LaunchTimer';
+import Place from '../Tickets/Place';
 import React, { Component } from 'react';
 import Reducer from '../Reducer';
 import styles from './index.module.css';
@@ -67,6 +68,7 @@ export default class LaunchCard extends Component {
             />
 
             <HyperText.H2>Tickets 🎫</HyperText.H2>
+            <Place />
             <Tickets tickets={tickets} />
           </HyperText>
         </Reducer>
