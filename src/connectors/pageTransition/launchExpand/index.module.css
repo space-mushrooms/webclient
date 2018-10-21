@@ -4,19 +4,17 @@
 
 .page:global(.transition-appear) {
   min-height: 100vh;
-  transform: translate3d(100%, 0, 0);
   position: absolute;
   width: 100%;
   top: 0;
-  transition-delay: .49s;
-  transition: transform 0.01s;
+  z-index: 1;
 }
 
-.page:global(.transition-appear):global(.transition-appear-active) {
-  transform: translate3d(0, 0, 0);
+.wrapper {
+  /*transition: opacity .2s ease-out;*/
+  /*transition-delay: .3s;*/
+  /*opacity: 0;*/
 }
-
-
 
 .block {
   border-radius: 0;
@@ -26,7 +24,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  transition: all .5s ease-out;
+  transition: all .3s ease-out;
   z-index: 2;
 }
 
