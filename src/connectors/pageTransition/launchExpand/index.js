@@ -40,10 +40,7 @@ export default function launchExpand(options) {
       onTransitionDidEnd() {}
 
       transitionManuallyStart() {
-        setTimeout(() => {
-          document.documentElement.scrollTop = 0;
-        }, 300);
-
+        document.documentElement.scrollTop = 0;
         this.setState({
           style: options || null,
           wrapperStyle: null,
