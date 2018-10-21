@@ -1,15 +1,15 @@
 import React, {PureComponent} from 'react';
-import Sliding from '../../components/PageTransition/Sliding';
 import TitledSection from '../../components/TitledSection';
+import launchExpandTransition from '../../connectors/pageTransition/launchExpand';
 
-export default class LaunchPage extends PureComponent {
+class LaunchPage extends PureComponent {
   render() {
     return (
-      <Sliding>
-        <TitledSection title="Launch Page">
-          Launch Page
-        </TitledSection>
-      </Sliding>
+      <TitledSection title="Launch Page">
+        Launch Page
+      </TitledSection>
     );
   }
 }
+
+export default launchExpandTransition()(LaunchPage);

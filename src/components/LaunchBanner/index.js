@@ -25,7 +25,11 @@ class LaunchBanner extends Component {
   constructor(props) {
     super(props);
     this.ref = React.createRef();
+    this.refCard = React.createRef();
     this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      opening: false,
+    };
   }
 
   getPathname() {
@@ -34,11 +38,19 @@ class LaunchBanner extends Component {
 
   handleClick = evt => {
     evt.preventDefault();
+    const video = this.refCard.current && this.refCard.current.getVideo();
+
+    this.setState({opening: true});
+
     this.props.push({
       pathname: this.getPathname(),
       state: {
-        clickRect: this.ref.current ? this.ref.current.getBoundingClientRect() : null,
-        clickType: 'image',
+        clickType: 'launch',
+        clickPayload: {
+          launch: this.props.launch,
+          rect: this.ref.current.getBoundingClientRect(),
+          currenctTime: video && video.currentTime,
+        },
       },
     });
   }
@@ -49,6 +61,7 @@ class LaunchBanner extends Component {
 
   render() {
     const { image, mission, rocket, video, launchTs, streamTs } = this.props.launch;
+    const { opening } = this.state;
     const now = new Date();
     const shouldDisplayDate = (streamTs - TIMER_DATE_THRESHOLD) > now;
     const live = streamTs < now;
@@ -56,15 +69,15 @@ class LaunchBanner extends Component {
     const showTimer = !rightNow && !shouldDisplayDate;
 
     return (
-      <div ref={this.ref}>
+      <div ref={this.ref} className={cn({opening})}>
         <Link
           onClick={this.handleClick}
           to={this.getPathname()}
           className={cn('link')}
         >
-          <Card backgroundImage={image} video={video} shadow height="390px">
+          <Card ref={this.refCard} backgroundImage={image} video={video} shadow height="390px">
             {live && <span className={cn('live')}>LIVE</span>}
-            <div>
+            <div className={cn('info')}>
               <LaunchInfo title="Mission" text={mission} />
               <LaunchInfo title="Rocket" text={rocket} />
             </div>
@@ -75,7 +88,7 @@ class LaunchBanner extends Component {
             </div>
             <div className={cn('explore')}>
               Explore now
-        </div>
+            </div>
           </Card>
         </Link>
       </div>

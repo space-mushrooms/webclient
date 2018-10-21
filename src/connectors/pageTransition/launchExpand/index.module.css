@@ -1,24 +1,24 @@
 .page {
   background: var(--color-background);
-  transition: transform .5s;
+  transition: opacity .5s;
 }
 
 .page:global(.transition-appear) {
   min-height: 100vh;
+  opacity: 0;
   position: absolute;
-  transform: translate3d(100%, 0, 0);
   width: 100%;
   top: 0;
 }
 
 .page:global(.transition-appear):global(.transition-appear-active) {
-  transform: translate3d(0, 0, 0);
+  opacity: 1;
 }
 
 .page:global(.transition-leave) {
-  transform: translate3d(0, 0, 0);
+  opacity: 0;
 }
 
 .page:global(.transition-leave):global(.transition-leave-active) {
-  transform: translate3d(-100%, 0, 0);
+  opacity: 1;
 }

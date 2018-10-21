@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Swipe from '../../components/Swipe';
 import LaunchBanner from '../../components/LaunchBanner';
-import Sliding from '../../components/PageTransition/Sliding';
+import slidingTransition from '../../connectors/pageTransition/sliding';
 import TitledSection from '../../components/TitledSection';
 import {
   launchMockRightNow,
@@ -9,18 +9,18 @@ import {
   launchMockTimer,
 } from '../../mock/launch';
 
-export default class MainPage extends PureComponent {
+class MainPage extends PureComponent {
   render() {
     return (
-      <Sliding>
-        <TitledSection title="Upcoming launches" path="/" linkText="See all">
-          <Swipe>
-            <LaunchBanner launch={launchMockRightNow} />
-            <LaunchBanner launch={launchMockDate} />
-            <LaunchBanner launch={launchMockTimer} />
-          </Swipe>
-        </TitledSection>
-      </Sliding>
+      <TitledSection title="Upcoming launches" path="/" linkText="See all">
+        <Swipe>
+          <LaunchBanner launch={launchMockRightNow} />
+          <LaunchBanner launch={launchMockDate} />
+          <LaunchBanner launch={launchMockTimer} />
+        </Swipe>
+      </TitledSection>
     );
   }
 }
+
+export default slidingTransition({appear: true})(MainPage);
