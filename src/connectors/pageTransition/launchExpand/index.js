@@ -31,8 +31,9 @@ export default function sliding() {
             left: state.clickPayload.rect.left,
             width: state.clickPayload.rect.width,
           },
-          launch: state.clickPayload.launch,
-          currenctTime: state.clickPayload.currenctTime || 0,
+          wrapperStyle: {
+            opacity: 1,
+          },
         });
       }
 
@@ -43,7 +44,7 @@ export default function sliding() {
       transitionManuallyStart() {
         this.setState({
           style: null,
-          doTransform: true,
+          wrapperStyle: null,
         });
       }
 
@@ -55,7 +56,7 @@ export default function sliding() {
       }
 
       render() {
-        const {doTransform, style, launch, currenctTime} = this.state;
+        const {doTransform, style, launch, currenctTime, wrapperStyle} = this.state;
         console.log(style);
         return (
           <React.Fragment>
@@ -63,14 +64,14 @@ export default function sliding() {
               <InnerComponent {...this.props} />
             </div>
             {doTransform ? (
-              <React.Fragment>
+              <div className={cn('wrapper')} style={wrapperStyle}>
                 <div className={cn('overlay')} />
                 <div className={cn('block')} style={style}>
                   {(launch && launch.video) ? (
                     <video className={cn('video')} src={`${launch.video}#t=${currenctTime}`} />
                   ) : null}
                 </div>
-              </React.Fragment>
+              </div>
             ) : null}
           </React.Fragment>
         );
