@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import ContentCard from '../../components/ContentCard';
 import Reducer from '../../components/Reducer';
+import styles from './index.module.css';
 
 export default class MissionPage extends PureComponent {
 
@@ -14,7 +15,9 @@ export default class MissionPage extends PureComponent {
           backToUrl={this.props.route.backToUrl}
         />
         <Reducer marginTop>
-          {contentMap[this.props.params.id]}
+          <div className={styles.contentWrapper}>
+            {contentMap[this.props.params.id]}
+          </div>
         </Reducer>
       </>
     );

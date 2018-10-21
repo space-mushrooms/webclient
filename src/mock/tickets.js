@@ -6,7 +6,7 @@ export const ticket1 = {
 };
 
 export const ticket2 = {
-  id: '1',
+  id: '2',
   name: 'Adult age 12+',
   price: '$47',
   buyLink: 'https://www.kennedyspacecenter.com/info/tickets',

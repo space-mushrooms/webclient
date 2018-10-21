@@ -12,7 +12,7 @@ export default function sliding() {
         this.state = {};
       }
 
-      onTransitionWillStart(data) {
+      onTransitionWillStart() {
         const state = this.props.location.state;
         if (!state || !state.clickType) {
           // Default animate position if user goto this page directly
@@ -38,7 +38,7 @@ export default function sliding() {
       }
 
       onTransitionDidEnd() {
-        // Do your stuff here
+        document.documentElement.scrollTop = 0;
       }
 
       transitionManuallyStart() {
@@ -49,7 +49,6 @@ export default function sliding() {
       }
 
       transitionManuallyStop() {
-        document.documentElement.scrollTop = 0;
         this.setState({
           doTransform: false,
         });
@@ -57,12 +56,8 @@ export default function sliding() {
 
       render() {
         const {doTransform, style, launch, currenctTime, wrapperStyle} = this.state;
-        console.log(style);
         return (
           <React.Fragment>
-            <div className={`${cn('page')} transition-item`}>
-              <InnerComponent {...this.props} />
-            </div>
             {doTransform ? (
               <div className={cn('wrapper')} style={wrapperStyle}>
                 <div className={cn('overlay')} />
@@ -73,6 +68,9 @@ export default function sliding() {
                 </div>
               </div>
             ) : null}
+            <div className={`${cn('page')} transition-item`}>
+              <InnerComponent {...this.props} />
+            </div>
           </React.Fragment>
         );
       }

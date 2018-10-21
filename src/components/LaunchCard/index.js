@@ -44,7 +44,7 @@ export default class LaunchCard extends Component {
           <HyperText>
             <HyperText.H2>About</HyperText.H2>
             <HyperText.P>Falcon Heavy has the highest payload capacity of any currently operational launch vehicle, and the fourth-highest capacity of any rocket ever built, trailing the American Saturn V and the Soviet Energia and N1.</HyperText.P>
-            <HyperText.H2>Launches 🚀</HyperText.H2>
+            <HyperText.H2>Launches</HyperText.H2>
             <HyperText.UL>
               <HyperText.LI>
                 February 6, 2018<br />
@@ -67,7 +67,7 @@ export default class LaunchCard extends Component {
               tweetId="1049619991195262982"
             />
 
-            <HyperText.H2>Tickets 🎫</HyperText.H2>
+            <HyperText.H2>Tickets</HyperText.H2>
             <Place />
             <Tickets tickets={tickets} />
           </HyperText>
