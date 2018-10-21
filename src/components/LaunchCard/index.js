@@ -61,7 +61,7 @@ export default class LaunchCard extends Component {
             </HyperText.UL>
 
             <HyperText.H2>
-              <HyperText.A href="https://twitter.com/hashtag/Falcon9">#Falcon9</HyperText.A> on Twitter
+              <HyperText.A target="_blank" href="https://twitter.com/hashtag/Falcon9">#Falcon9</HyperText.A> on Twitter
             </HyperText.H2>
             <Tweet
               tweetId="1049619991195262982"
