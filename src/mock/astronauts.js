@@ -1,4 +1,6 @@
 import React from 'react';
+import NickHague from '../components/NickHague';
+import AlekseyOvchinin from '../components/AlekseyOvchinin';
 
 export default [{
   id: '1',
@@ -13,7 +15,7 @@ export default [{
 }];
 
 export const astronautsContent = [(
-  <div>1</div>
+  <NickHague />
 ), (
-  <div>2</div>
+  <AlekseyOvchinin />
 )];
