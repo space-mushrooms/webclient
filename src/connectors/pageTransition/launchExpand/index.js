@@ -4,7 +4,7 @@ import styles from './index.module.css';
 
 const cn = classnames.bind(styles);
 
-export default function sliding() {
+export default function launchExpand(options) {
   return InnerComponent => {
     return class launchExpand extends PureComponent {
       constructor(props) {
@@ -37,18 +37,21 @@ export default function sliding() {
         });
       }
 
-      onTransitionDidEnd() {
-        document.documentElement.scrollTop = 0;
-      }
+      onTransitionDidEnd() {}
 
       transitionManuallyStart() {
+        setTimeout(() => {
+          document.documentElement.scrollTop = 0;
+        }, 300);
+
         this.setState({
-          style: null,
+          style: options || null,
           wrapperStyle: null,
         });
       }
 
       transitionManuallyStop() {
+        document.documentElement.scrollTop = 0;
         this.setState({
           doTransform: false,
         });
