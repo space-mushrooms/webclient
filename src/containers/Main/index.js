@@ -15,6 +15,8 @@ const DEFAULT_IMAGE = 'https://images-assets.nasa.gov/image/201304210010HQ/20130
 const ROCKETS_ARE_COOL = 'Ракеты это очень клево, прочитайте про клевые ракеты здесб';
 const MISSIONS_ARE_COOL = 'Миссии это очень клево, прочитайте про клевые миссии здесб';
 const EXPLORATIONS_ARE_COOL = 'Исследования это очень клево, прочитайте про клевые исследования...';
+const LAUNCH_VEHICLES_IMAGE = 'https://o.aolcdn.com/images/dims?quality=100&image_uri=http%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2Ffd65b8542f16f963bd555c8623ad52f4%2F205045607%2Fnasa-sls-rocket-tests-2017-03-13-01-ed.jpg&client=amp-blogside-v2&signature=e8774c377907d8ad5ecf547d7c63a17fca10ce2f';
+const LAUNCH_VEHICLES_DESCRIPTION = 'From a sounding rocket to a super-heavy lift vehicle';
 
 class MainPage extends PureComponent {
   render() {
@@ -29,7 +31,7 @@ class MainPage extends PureComponent {
         </TitledSection>
         <TitledSection marginTop title="Launch vehicles">
           <Reducer>
-            <FactCard image={DEFAULT_IMAGE} fact={ROCKETS_ARE_COOL} to="/vehicles" />
+            <FactCard image={LAUNCH_VEHICLES_IMAGE} fact={LAUNCH_VEHICLES_DESCRIPTION} to="/vehicles" />
           </Reducer>
         </TitledSection>
         <TitledSection marginTop title="Missions" path="/" linkText="See all">
