@@ -3,6 +3,7 @@
   line-height: 22px;
   font-size: 17px;
   color: var(--text-color-inverse);
+  margin: -1rem 0 .7rem;
 }
 
 .text {
