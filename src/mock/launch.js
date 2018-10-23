@@ -2,7 +2,7 @@ export const launchMockRightNow = {
   id: '1',
   mission: 'Resupply ISS | Cygnus CRS NG-10',
   rocket: 'Antares 230',
-  video: 'https://www.dropbox.com/s/x13lh9fpa3x8b46/antares_320.mp4',
+  video: '/antares_320.mp4',
   image: 'https://c1.staticflickr.com/5/4550/38364022681_5a27e5c37f_b.jpg',
   launchTs: Date.now() - 1000,
   streamTs: Date.now() - 1000,

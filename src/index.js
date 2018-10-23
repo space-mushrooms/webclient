@@ -34,10 +34,12 @@ ReactDOM.render((
         <IndexRedirect to="/main" />
         <Route path="/main" component={Main} />
         <Route path="/vehicles" component={Vehicles} />
+        <Route path="/main/vehicles" component={Vehicles} />
         <Route backToTitle="Main" backToUrl="/main" path="main/launches/:id" component={LaunchPage} />
         <Route backToTitle="Main" backToUrl="/main" path="launches/:id" component={LaunchPage} />
         <Route backToTitle="Launch vehicles" backToUrl="/vehicles" path="/vehicles/:id" component={ContentPage} />
         <Route backToTitle="Main" backToUrl="/" path="/astronauts/:id" component={AstronautPage} />
+        <Route backToTitle="Main" backToUrl="/" path="/main/astronauts/:id" component={AstronautPage} />
         <Route backToTitle="Main" backToUrl="/" path="/mission/:id" component={MissionPage} />
         <Route backToTitle="Main" backToUrl="/" path="/main/mission/:id" component={MissionPage} />
         <Route path="profile" component={LaunchPage} />
