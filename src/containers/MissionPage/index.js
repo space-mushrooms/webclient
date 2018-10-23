@@ -1,12 +1,9 @@
 import React, {PureComponent} from 'react';
 import ContentCard from '../../components/ContentCard';
 import Reducer from '../../components/Reducer';
-import slidingTransition from '../../connectors/pageTransition/sliding';
-import TitledSection from '../../components/TitledSection';
 import styles from './index.module.css';
-import launchExpandTransition from "../../connectors/pageTransition/launchExpand";
 
-class MissionPage extends PureComponent {
+export default class MissionPage extends PureComponent {
 
   render() {
     return (
@@ -105,6 +102,3 @@ const titleMap = {
   '3': 'Hubble Space Telescope',
   '4': 'Landsat program',
 };
-
-export default slidingTransition()(MissionPage);
-export const MissionExpanding = launchExpandTransition({height: '225px'})(MissionPage);

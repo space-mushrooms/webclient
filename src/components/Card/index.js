@@ -42,6 +42,7 @@ export default class Card extends PureComponent {
           className={cn('video')}
           src={video}
           autoPlay
+          playsInline
           loop
           muted
           controls={false}

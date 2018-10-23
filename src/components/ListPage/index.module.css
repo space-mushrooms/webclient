@@ -4,8 +4,10 @@
 }
 
 .item {
+  color: var(--color-text);
   display: flex;
   margin-bottom: 16px;
+  text-decoration: none;
 }
 
 .itemTitle {

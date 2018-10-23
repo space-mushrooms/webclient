@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react';
 import LaunchCard from '../../components/LaunchCard';
 import { byId } from '../../mock/launch';
-import slidingTransition from '../../connectors/pageTransition/sliding';
-import launchExpandTransition from '../../connectors/pageTransition/launchExpand';
 
-class LaunchPage extends PureComponent {
+export default class LaunchPage extends PureComponent {
   render() {
+    console.log(this.props);
     return (
       <LaunchCard
         launch={byId[this.props.params.id]}
@@ -15,6 +14,3 @@ class LaunchPage extends PureComponent {
     );
   }
 }
-
-export default slidingTransition()(LaunchPage);
-export const LaunchExpanding = launchExpandTransition()(LaunchPage);

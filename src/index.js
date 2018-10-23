@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import Main from './containers/Main';
 import Vehicles from './containers/Vehicles';
-import Launch, {LaunchExpanding} from './containers/Launch';
+import LaunchPage from './containers/Launch';
 import ContentPage from './containers/Content';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
@@ -14,7 +14,7 @@ import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
 import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux'
 import identity from 'lodash/identity';
 import AstronautPage from './containers/Astronaut';
-import MissionPage, {MissionExpanding} from './containers/MissionPage';
+import MissionPage from './containers/MissionPage';
 
 const store = createStore(
     rootReducer,
@@ -34,13 +34,13 @@ ReactDOM.render((
         <IndexRedirect to="/main" />
         <Route path="/main" component={Main} />
         <Route path="/vehicles" component={Vehicles} />
-        <Route backToTitle="Main" backToUrl="/main" path="main/launches/:id" component={LaunchExpanding} />
-        <Route backToTitle="Main" backToUrl="/main" path="launches/:id" component={Launch} />
+        <Route backToTitle="Main" backToUrl="/main" path="main/launches/:id" component={LaunchPage} />
+        <Route backToTitle="Main" backToUrl="/main" path="launches/:id" component={LaunchPage} />
         <Route backToTitle="Launch vehicles" backToUrl="/vehicles" path="/vehicles/:id" component={ContentPage} />
         <Route backToTitle="Main" backToUrl="/" path="/astronauts/:id" component={AstronautPage} />
         <Route backToTitle="Main" backToUrl="/" path="/mission/:id" component={MissionPage} />
-        <Route backToTitle="Main" backToUrl="/" path="/main/mission/:id" component={MissionExpanding} />
-        <Route path="profile" component={Launch} />
+        <Route backToTitle="Main" backToUrl="/" path="/main/mission/:id" component={MissionPage} />
+        <Route path="profile" component={LaunchPage} />
       </Route>
     </Router>
   </Provider>

@@ -7,7 +7,8 @@ import { push } from 'react-router-redux';
 import styles from './index.module.css';
 import Card from '../Card';
 import LaunchInfo from '../LaunchInfo';
-import { Link } from 'react-router';
+import Link from '../PageTransition/Link';
+import TransitionType, {createTransition} from '../PageTransition/Type';
 import LaunchShape from '../../shapes/Launch';
 import LaunchTimer from '../LaunchTimer';
 
@@ -22,30 +23,15 @@ class LaunchBanner extends Component {
   constructor(props) {
     super(props);
     this.ref = React.createRef();
-    this.refCard = React.createRef();
-    this.handleClick = this.handleClick.bind(this);
   }
 
   getPathname() {
     return `/main/launches/${this.props.launch.id}`;
   }
 
-  handleClick = evt => {
-    evt.preventDefault();
-    const video = this.refCard.current && this.refCard.current.getVideo();
-
-    this.props.push({
-      pathname: this.getPathname(),
-      state: {
-        clickType: 'launch',
-        clickPayload: {
-          launch: this.props.launch,
-          rect: this.ref.current.getBoundingClientRect(),
-          currenctTime: video && video.currentTime,
-        },
-      },
-    });
-  }
+  createTransition = () => createTransition(TransitionType.EXPAND, {
+    rect: this.ref.current.getBoundingClientRect(),
+  });
 
   handleTimerComplete = () => {
     this.forceUpdate();
@@ -58,12 +44,8 @@ class LaunchBanner extends Component {
 
     return (
       <div ref={this.ref}>
-        <Link
-          onClick={this.handleClick}
-          to={this.getPathname()}
-          className={cn('link')}
-        >
-          <Card borderRadius ref={this.refCard} backgroundImage={image} video={video} shadow height="390px">
+        <Link transition={this.createTransition} to={this.getPathname()} className={cn('link')}>
+          <Card borderRadius backgroundImage={image} video={video} shadow height="390px">
             {live && <span className={cn('live')}>LIVE</span>}
             <div>
               <LaunchInfo title="Mission" text={mission} />

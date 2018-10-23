@@ -55,17 +55,13 @@ export default function launchExpand(options) {
       }
 
       render() {
-        const {doTransform, style, launch, currenctTime, wrapperStyle} = this.state;
+        const {doTransform, style, wrapperStyle} = this.state;
         return (
           <React.Fragment>
             {doTransform ? (
               <div className={cn('wrapper')} style={wrapperStyle}>
                 <div className={cn('overlay')} />
-                <div className={cn('block')} style={style}>
-                  {(launch && launch.video) ? (
-                    <video className={cn('video')} src={`${launch.video}#t=${currenctTime}`} />
-                  ) : null}
-                </div>
+                <div className={cn('block')} style={style} />
               </div>
             ) : null}
             <div className={`${cn('page')} transition-item`}>

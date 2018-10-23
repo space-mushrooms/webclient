@@ -1,11 +1,9 @@
 import React, { PureComponent } from 'react';
 import ContentCard from '../../components/ContentCard';
-import slidingTransition from '../../connectors/pageTransition/sliding';
-import launchExpandTransition from '../../connectors/pageTransition/launchExpand';
 import astronauts, {astronautsContent} from '../../mock/astronauts';
 import Reducer from '../../components/Reducer';
 
-class AstronautPage extends PureComponent {
+export default class AstronautPage extends PureComponent {
   render() {
     const id = this.props.params.id - 1;
     const astronaut = astronauts[id];
@@ -26,6 +24,3 @@ class AstronautPage extends PureComponent {
     );
   }
 }
-
-export default slidingTransition()(AstronautPage);
-export const ContentExpanding = launchExpandTransition()(AstronautPage);

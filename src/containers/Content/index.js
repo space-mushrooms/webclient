@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react';
 import ContentCard from '../../components/ContentCard';
-import slidingTransition from '../../connectors/pageTransition/sliding';
-import launchExpandTransition from '../../connectors/pageTransition/launchExpand';
 
-class ContentPage extends PureComponent {
+export default class ContentPage extends PureComponent {
   render() {
     return (
       <ContentCard
@@ -15,6 +13,3 @@ class ContentPage extends PureComponent {
     );
   }
 }
-
-export default slidingTransition()(ContentPage);
-export const ContentExpanding = launchExpandTransition()(ContentPage);

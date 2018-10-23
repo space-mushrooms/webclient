@@ -1,9 +1,10 @@
 import classnames from 'classnames/bind';
+import Link from '../PageTransition/Link';
 import React, {PureComponent} from 'react';
 import styles from './index.module.css';
+import TransitionType, {createTransition} from '../PageTransition/Type';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 import { push } from 'react-router-redux';
 import Card from '../Card';
 
@@ -13,21 +14,12 @@ class FactCard extends PureComponent {
   constructor(props) {
     super(props);
     this.ref = React.createRef();
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick = evt => {
-    evt.preventDefault();
-    this.props.push({
-      pathname: this.getPathname(),
-      state: {
-        clickType: 'mission',
-        clickPayload: {
-          rect: this.ref.current.getBoundingClientRect(),
-        },
-      },
-    });
-  }
+  createTransition = () => createTransition(TransitionType.EXPAND, {
+    rect: this.ref.current.getBoundingClientRect(),
+    height: '225px',
+  });
 
   getPathname() {
     return `/main${this.props.to}`;
@@ -37,7 +29,7 @@ class FactCard extends PureComponent {
     const { image, fact, description, height = '210px' } = this.props;
     return (
       <div ref={this.ref}>
-        <Link className={cn('link')} to={this.getPathname()} onClick={this.handleClick}>
+        <Link transition={this.createTransition} className={cn('link')} to={this.getPathname()} onClick={this.handleClick}>
           <Card borderRadius gradient backgroundImage={image} height={height}>
             <div className={cn('cardFact')}>
               {fact}

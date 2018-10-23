@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import Swipe from '../../components/Swipe';
 import LaunchBanner from '../../components/LaunchBanner';
-import slidingTransition from '../../connectors/pageTransition/sliding';
 import TitledSection from '../../components/TitledSection';
 import {
   launchMockRightNow,
@@ -16,7 +15,7 @@ import astronauts from '../../mock/astronauts';
 const LAUNCH_VEHICLES_IMAGE = 'https://o.aolcdn.com/images/dims?quality=100&image_uri=http%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2Ffd65b8542f16f963bd555c8623ad52f4%2F205045607%2Fnasa-sls-rocket-tests-2017-03-13-01-ed.jpg&client=amp-blogside-v2&signature=e8774c377907d8ad5ecf547d7c63a17fca10ce2f';
 const LAUNCH_VEHICLES_DESCRIPTION = 'From a sounding rocket to a super-heavy lift vehicle';
 
-class MainPage extends PureComponent {
+export default class MainPage extends PureComponent {
   render() {
     return (
       <React.Fragment>
@@ -50,5 +49,3 @@ class MainPage extends PureComponent {
     );
   }
 }
-
-export default slidingTransition({appear: true})(MainPage);

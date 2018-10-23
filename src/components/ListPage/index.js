@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import Reducer from '../Reducer';
 import PropTypes from 'prop-types';
+import Link from '../PageTransition/Link';
+import TransitionType, {createTransition} from '../PageTransition/Type';
 import styles from './index.module.css';
 
+const transition = createTransition(TransitionType.SLIDE, {appear: true});
 
 export default class ListPage extends Component {
   static propTypes = {
@@ -42,13 +45,13 @@ export default class ListPage extends Component {
         <div className={styles.list}>
           {data.map(item => {
             return (
-              <div className={styles.item} key={item.id}>
+              <Link to="/launches/1" transition={transition} className={styles.item} key={item.id}>
                 <div className={styles.itemThumbnail} style={{backgroundImage: `url(${item.imgUrl})`}}></div>
                 <div className={styles.itemContent}>
                   <div className={styles.itemTitle}>{item.title}</div>
                   {item.text && <div className={styles.itemText}>{item.text}</div>}
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

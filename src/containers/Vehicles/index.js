@@ -1,10 +1,8 @@
 import React, {PureComponent} from 'react';
 import ListPage from '../../components/ListPage';
-import slidingTransition from '../../connectors/pageTransition/sliding';
 import Api from '../../Api';
 
-
-class Vehicles extends PureComponent {
+export default class VehiclesPage extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -29,5 +27,3 @@ class Vehicles extends PureComponent {
     );
   }
 }
-
-export default slidingTransition()(Vehicles);
