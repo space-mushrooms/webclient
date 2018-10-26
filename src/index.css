@@ -23,8 +23,8 @@ html {
   --size-gutter-three-quarter: 1.5rem;
 }
 
-::-webkit-scrollbar { 
-  display: none; 
+::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -37,6 +37,7 @@ body {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
   -moz-osx-font-smoothing: grayscale;
 }
 

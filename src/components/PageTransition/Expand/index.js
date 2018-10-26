@@ -1,5 +1,6 @@
 import classnames from 'classnames/bind';
 import React, {PureComponent} from 'react';
+import {resetPageScroll} from '../../../utils/dom';
 import styles from './index.module.css';
 
 const cn = classnames.bind(styles);
@@ -13,7 +14,6 @@ export default class Expand extends PureComponent {
   }
 
   onTransitionWillStart() {
-    console.log('onTransitionWillStart', this.props);
     const {options} = this.props;
     if (!options) {
       // Default animate position if user goto this page directly
@@ -41,7 +41,7 @@ export default class Expand extends PureComponent {
   onTransitionDidEnd() {}
 
   transitionManuallyStart() {
-    document.documentElement.scrollTop = 0;
+    resetPageScroll();
     this.setState({
       style: this.props.options ? {height: this.props.options.height} : null,
       wrapperStyle: null,
@@ -49,13 +49,12 @@ export default class Expand extends PureComponent {
   }
 
   transitionManuallyStop() {
-    document.documentElement.scrollTop = 0;
+    resetPageScroll();
     this.setState({doTransform: false});
   }
 
   render() {
     const {doTransform, style, wrapperStyle} = this.state;
-    console.log(doTransform, style, wrapperStyle);
     return (
       <React.Fragment>
         {doTransform ? (

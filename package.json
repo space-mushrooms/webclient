@@ -16,7 +16,8 @@
     "react-twitter-widgets": "^1.7.1",
     "redux": "^4.0.1",
     "serve": "^10.0.2",
-    "swipe-js-iso": "^2.0.4"
+    "swipe-js-iso": "^2.0.4",
+    "ua-parser-js": "^0.7.19"
   },
   "scripts": {
     "start": "react-scripts start",
