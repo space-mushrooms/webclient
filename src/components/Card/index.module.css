@@ -4,6 +4,7 @@
   overflow: hidden;
   position: relative;
   margin-bottom: 10px;
+  transform: translate3d(0, 0, 0);
 }
 
 .boxShadow {
@@ -15,6 +16,7 @@
   width: 100%;
   box-sizing: border-box;
   position: relative;
+  transform: translate3d(0, 0, 0);
 }
 
 .borderRadius {
