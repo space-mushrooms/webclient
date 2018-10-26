@@ -36,7 +36,7 @@ ReactDOM.render((
         <Route path="/vehicles" component={Vehicles} />
         <Route path="/main/vehicles" component={Vehicles} />
         <Route backToTitle="Main" backToUrl="/main" path="main/launches/:id" component={LaunchPage} />
-        <Route backToTitle="Main" backToUrl="/main" path="launches/:id" component={LaunchPage} />
+        <Route backToTitle="Launch vehicles" backToUrl="/vehicles" path="launches/:id" component={LaunchPage} />
         <Route backToTitle="Launch vehicles" backToUrl="/vehicles" path="/vehicles/:id" component={ContentPage} />
         <Route backToTitle="Main" backToUrl="/" path="/astronauts/:id" component={AstronautPage} />
         <Route backToTitle="Main" backToUrl="/" path="/main/astronauts/:id" component={AstronautPage} />

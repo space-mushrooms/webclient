@@ -6,9 +6,9 @@ const cn = classnames.bind(styles);
 
 export const CardReducer = function({children}) {
   return (
-    <div className={cn('reducer')}>
+    <React.Fragment>
       {children}
-    </div>
+    </React.Fragment>
   );
 }
 

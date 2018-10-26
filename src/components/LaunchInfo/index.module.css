@@ -8,5 +8,9 @@
 }
 
 .launchInfo {
-  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.launchInfo:first-child {
+  padding-top: 0;
 }
